@@ -60,7 +60,9 @@ export default function Register() {
                   id="form3Example5"
                   label="Password"
                   value={data.pass}
-                  onChange={(e) => setData({ ...data, pass: e.target.value })}
+                  onChange={(e) =>
+                    setData({ ...data, pass: e.target.value })
+                  }
                 />
                 <MDBBtn
                   type="submit"

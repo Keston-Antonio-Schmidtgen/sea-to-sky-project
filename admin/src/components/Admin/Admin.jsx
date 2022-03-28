@@ -8,6 +8,13 @@ export default function Admin() {
   const handleLogout = () => {
     setCurrentAdmin(null);
 
+<<<<<<< HEAD
+export default function  Admin () {
+    return (
+<Sidenav />
+    )
+}
+=======
     history.push("/login");
   };
 
@@ -27,3 +34,4 @@ export default function Admin() {
     </div>
   );
 }
+>>>>>>> main
