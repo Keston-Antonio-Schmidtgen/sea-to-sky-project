@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client_1": "npm run start --prefix blog",
+    "client_2": "npm run start --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run client_1\" \"npm run client_2\""
   },
   "repository": {
     "type": "git",
@@ -19,13 +24,15 @@
   "homepage": "https://github.com/Keston-Antonio-Schmidtgen/sea-to-sky-project#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cloudinary": "^1.28.1",
     "concurrently": "^7.0.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.7",
+    "mongoose": "^6.2.3",
     "multer": "^1.4.4",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^6.7.3"
   }
 }
