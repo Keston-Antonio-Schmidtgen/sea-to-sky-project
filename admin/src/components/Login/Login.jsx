@@ -64,7 +64,7 @@ export default function Login() {
     type='submit' 
     className='mb-4' 
     block
-    oonClick={(e) => {
+    onClick={(e) => {
       e.preventDefault();
       handleLogin();}}
     color="info">
