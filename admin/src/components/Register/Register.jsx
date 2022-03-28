@@ -4,24 +4,18 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./register.scss";
 import { MDBInput, MDBCol, MDBRow, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
-
 export default function Register() {
   const [data, setData] = useState({
     username: "",
     email: "",
-    password: "",
+    pass: "",
   });
-
   const history = useHistory();
-
   const handleClick = async (e) => {
     console.log("data is", data);
-
-    if (!data.password || !data.email) return;
-
+    if (!data.pass || !data.email) return;
     const response = await axios.post("/users/register", data);
     console.log("response from register is", response);
-
     if (response.data.success) history.push("/login");
     /*   setData({
       username: "",
@@ -29,7 +23,6 @@ export default function Register() {
       password: "",
     }) */
   };
-
   return (
     <div className="text-center bg-images">
       <div className="register">
@@ -64,10 +57,8 @@ export default function Register() {
                   type="password"
                   id="form3Example5"
                   label="Password"
-                  value={data.password}
-                  onChange={(e) =>
-                    setData({ ...data, password: e.target.value })
-                  }
+                  value={data.pass}
+                  onChange={(e) => setData({ ...data, pass: e.target.value })}
                 />
                 <MDBBtn
                   type="submit"
@@ -88,19 +79,15 @@ export default function Register() {
                     Already a member? <a href="#!">Sign In</a>
                   </p>
                   <p>or Register with:</p>
-
                   <MDBBtn floating className="mx-1" color="primary">
                     <MDBIcon fab icon="facebook-f" />
                   </MDBBtn>
-
                   <MDBBtn floating className="mx-1" color="danger">
                     <MDBIcon fab icon="google" />
                   </MDBBtn>
-
                   <MDBBtn floating className="mx-1" color="info">
                     <MDBIcon fab icon="twitter" />
                   </MDBBtn>
-
                   <MDBBtn floating className="mx-1" color="dark">
                     <MDBIcon fab icon="github" />
                   </MDBBtn>
