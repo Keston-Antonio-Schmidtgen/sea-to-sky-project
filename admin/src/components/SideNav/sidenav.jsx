@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MDBSideNav, MDBSideNavMenu, MDBSideNavItem, MDBSideNavLink, MDBSideNavCollapse, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 
-export default function Admin() {
+export default function Sidenav() {
   const [modeOpen, setModeOpen] = useState(true);
   const [modeCollapse1, setModeCollapse1] = useState(true);
   const [modeCollapse2, setModeCollapse2] = useState(false);
