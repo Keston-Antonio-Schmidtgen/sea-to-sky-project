@@ -7,5 +7,8 @@ export default function Admin() {
   const history = useHistory();
   const handleLogout = () => {
     setCurrentAdmin(null);}
-    return <Sidenav />
+    return
+    <Sidenav />
+
+
 }

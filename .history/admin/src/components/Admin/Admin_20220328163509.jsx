@@ -6,6 +6,11 @@ export default function Admin() {
   const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
   const history = useHistory();
   const handleLogout = () => {
-    setCurrentAdmin(null);}
-    return <Sidenav />
+    setCurrentAdmin(null);
+    <Sidenav />
+
+export default function  Admin () {
+    return (
+
+    )
 }
