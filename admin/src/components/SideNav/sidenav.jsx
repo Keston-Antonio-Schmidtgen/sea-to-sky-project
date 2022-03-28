@@ -5,10 +5,12 @@ export default function Admin() {
   const [modeOpen, setModeOpen] = useState(true);
   const [modeCollapse1, setModeCollapse1] = useState(true);
   const [modeCollapse2, setModeCollapse2] = useState(false);
+  const [modeCollapse3, setModeCollapse3] = useState(false);
+  const [modeCollapse4, setModeCollapse4] = useState(false);
   const [mode, setMode] = useState('push');
   const [activeBtn, setActiveBtn] = useState('first');
   const sidenavContent = useRef(null);
-  const [container, setContainer] = useState<any>();
+  const [container, setContainer] = useState();
 
   useEffect(() => {
     setContainer(sidenavContent.current);
@@ -55,7 +57,7 @@ export default function Admin() {
         isOpen={modeOpen}
         contentRef={container}
         absolute
-        getOpenState={(e: any) => setModeOpen(e)}
+        getOpenState={e => setModeOpen(e)}
       >
         <MDBSideNavMenu>
           <MDBSideNavItem>
@@ -87,21 +89,21 @@ export default function Admin() {
             </MDBSideNavCollapse>
           </MDBSideNavItem>
           <MDBSideNavItem>
-            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse2} onClick={() => setModeCollapse3(!modeCollapse3)}>
+            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse3} onClick={() => setModeCollapse3(!modeCollapse3)}>
               <MDBIcon fas icon='grin' className='fa-fw me-3' />
               Comments
             </MDBSideNavLink>
-            <MDBSideNavCollapse show={modeCollapse2}>
+            <MDBSideNavCollapse show={modeCollapse3}>
               <MDBSideNavLink>link 1</MDBSideNavLink>
               <MDBSideNavLink>link 2</MDBSideNavLink>
             </MDBSideNavCollapse>
           </MDBSideNavItem>
           <MDBSideNavItem>
-            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse2} onClick={() => setModeCollapse4(!modeCollapse4)}>
+            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse4} onClick={() => setModeCollapse4(!modeCollapse4)}>
               <MDBIcon fas icon='grin' className='fa-fw me-3' />
               Users
             </MDBSideNavLink>
-            <MDBSideNavCollapse show={modeCollapse2}>
+            <MDBSideNavCollapse show={modeCollapse4}>
               <MDBSideNavLink>All Users</MDBSideNavLink>
               <MDBSideNavLink>Add New</MDBSideNavLink>
             </MDBSideNavCollapse>
