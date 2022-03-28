@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import "./register.scss";
 import { MDBInput, MDBCol, MDBRow, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
@@ -13,7 +13,9 @@ export default function Register() {
   const history = useHistory();
   const handleClick = async (e) => {
     console.log("data is", data);
+
     if (!data.pass || !data.email) return;
+
     const response = await axios.post("/users/register", data);
     console.log("response from register is", response);
     if (response.data.success) history.push("/login");
@@ -76,7 +78,7 @@ export default function Register() {
                 </MDBBtn>{" "}
                 <div className="text-center">
                   <p>
-                    Already a member? <a href="#!">Sign In</a>
+                    Already a member? <Link to="login">Sign In</Link>
                   </p>
                   <p>or Register with:</p>
                   <MDBBtn floating className="mx-1" color="primary">
