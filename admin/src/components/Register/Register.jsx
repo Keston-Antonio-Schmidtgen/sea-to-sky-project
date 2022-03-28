@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import "./register.scss";
 import { MDBInput, MDBCol, MDBRow, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
@@ -83,7 +83,7 @@ export default function Register() {
                 </MDBBtn>{" "}
                 <div className="text-center">
                   <p>
-                    Already a member? <a href="#!">Sign In</a>
+                    Already a member? <Link to="login">Sign In</Link>
                   </p>
                   <p>or Register with:</p>
 
