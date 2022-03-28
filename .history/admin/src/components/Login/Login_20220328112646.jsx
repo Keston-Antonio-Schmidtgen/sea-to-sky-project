@@ -17,7 +17,6 @@ export default function Login() {
   });
 
   const handleLogin = async () => {};
-  
   return (
     <div className="text-center bg-images">
       <div className="register">
@@ -30,7 +29,7 @@ export default function Login() {
     <MDBInput 
     className='mb-4' 
     type='email' 
-    id='form2Example0' 
+    id='form2Example1' 
     label='Email'
     value={data.email}
     onChange={(e) => setData({ ...data, email: e.target.value })}
@@ -65,7 +64,7 @@ export default function Login() {
     type='submit' 
     className='mb-4' 
     block
-    onClick={(e) => {
+    oonClick={(e) => {
       e.preventDefault();
       handleLogin();}}
     color="info">

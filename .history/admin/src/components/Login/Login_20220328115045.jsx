@@ -17,7 +17,6 @@ export default function Login() {
   });
 
   const handleLogin = async () => {};
-  
   return (
     <div className="text-center bg-images">
       <div className="register">
@@ -65,7 +64,7 @@ export default function Login() {
     type='submit' 
     className='mb-4' 
     block
-    onClick={(e) => {
+    oonClick={(e) => {
       e.preventDefault();
       handleLogin();}}
     color="info">

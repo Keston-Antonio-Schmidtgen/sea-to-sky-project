@@ -17,7 +17,6 @@ export default function Login() {
   });
 
   const handleLogin = async () => {};
-  
   return (
     <div className="text-center bg-images">
       <div className="register">
