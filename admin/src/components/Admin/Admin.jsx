@@ -1,7 +1,5 @@
-import Sidenav from "../SideNav/sidenav"
+import Sidenav from "../SideNav/sidenav";
 
-export default function  Admin () {
-    return (
-
-    )
+export default function Admin() {
+  return <div></div>;
 }
