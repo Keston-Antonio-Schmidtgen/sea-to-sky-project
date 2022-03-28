@@ -3,6 +3,8 @@ import React from "react";
 export default function Admin() {
   return (
     <div>
+      {" "}
+      <button>LogOut</button>
       <h1> posts and blogs been created</h1>
       <div>
         <button>Home</button>

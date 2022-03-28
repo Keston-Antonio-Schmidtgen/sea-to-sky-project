@@ -9,7 +9,7 @@ export default function Register() {
   const [data, setData] = useState({
     username: "",
     email: "",
-    password: "",
+    pass: "",
   });
 
   const history = useHistory();
@@ -17,7 +17,7 @@ export default function Register() {
   const handleClick = async (e) => {
     console.log("data is", data);
 
-    if (!data.password || !data.email) return;
+    if (!data.pass || !data.email) return;
 
     const response = await axios.post("/users/register", data);
     console.log("response from register is", response);
@@ -64,10 +64,8 @@ export default function Register() {
                   type="password"
                   id="form3Example5"
                   label="Password"
-                  value={data.password}
-                  onChange={(e) =>
-                    setData({ ...data, password: e.target.value })
-                  }
+                  value={data.pass}
+                  onChange={(e) => setData({ ...data, pass: e.target.value })}
                 />
                 <MDBBtn
                   type="submit"
