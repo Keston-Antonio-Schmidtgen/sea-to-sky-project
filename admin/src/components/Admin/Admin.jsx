@@ -28,6 +28,8 @@ export default function Admin() {
         <button>Comments</button>
         <button>Users</button>
       </div>
+            <Sidenav />
+
     </div>
   );
 
