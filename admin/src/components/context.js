@@ -5,9 +5,9 @@ export const WordContext = createContext();
 
 export default function WordContextProvider({ children }) {
   const [users, setUsers] = useState([]);
-  const [currentAdmin, setCurrentAdmin] = useState(null);
+  const [currentAdmin, setCurrentAdmin] = useState({});
 
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   const [allPosts, setAllPosts] = useState([]);
 
   const [blog, setBlog] = useState([]);
