@@ -1,130 +1,162 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { MDBSideNav, MDBSideNavMenu, MDBSideNavItem, MDBSideNavLink, MDBSideNavCollapse, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import MailIcon from '@mui/icons-material/Mail';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
-export default function Sidenav() {
-  const [modeOpen, setModeOpen] = useState(true);
-  const [modeCollapse1, setModeCollapse1] = useState(true);
-  const [modeCollapse2, setModeCollapse2] = useState(false);
-  const [modeCollapse3, setModeCollapse3] = useState(false);
-  const [modeCollapse4, setModeCollapse4] = useState(false);
-  const [mode, setMode] = useState('push');
-  const [activeBtn, setActiveBtn] = useState('first');
-  const sidenavContent = useRef(null);
-  const [container, setContainer] = useState();
+const drawerWidth = 240;
 
-  useEffect(() => {
-    setContainer(sidenavContent.current);
-  }, []);
+function SideBar(props) {
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <div>
+      <Toolbar />
+      <Divider />
+      <List>
+        {/* Each of them need to have submenus */}
+        {['Posts', 'Comments', 'Pages', 'Media', 'Users'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <>
-      <div className='d-flex my-4'>
-        <MDBBtn
-          onClick={() => {
-            setMode('push');
-            setActiveBtn('first');
-          }}
-          outline={activeBtn !== 'first'}
-          className='me-3'
-        >
-          Push
-        </MDBBtn>
-        <MDBBtn
-          onClick={() => {
-            setMode('side');
-            setActiveBtn('second');
-          }}
-          outline={activeBtn !== 'second'}
-          className='me-3'
-        >
-          Side
-        </MDBBtn>
-        <MDBBtn
-          onClick={() => {
-            setMode('over');
-            setActiveBtn('third');
-          }}
-          outline={activeBtn !== 'third'}
-          className='me-3'
-        >
-          Over
-        </MDBBtn>
-      </div>
-
-      <MDBSideNav
-        mode={mode}
-        isOpen={modeOpen}
-        contentRef={container}
-        absolute
-        getOpenState={e => setModeOpen(e)}
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
       >
-        <MDBSideNavMenu>
-          <MDBSideNavItem>
-            <MDBSideNavLink>
-              <MDBIcon far icon='smile' className='fa-fw me-3' />
-              Link 1
-            </MDBSideNavLink>
-          </MDBSideNavItem>
-          <MDBSideNavItem>
-            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse1} onClick={() => setModeCollapse1(!modeCollapse1)}>
-              <MDBIcon fas icon='grin' className='fa-fw me-3' />
-              Home Posts
-            </MDBSideNavLink>
-            <MDBSideNavCollapse show={modeCollapse1}>
-              <MDBSideNavLink>All Posts</MDBSideNavLink>
-              <MDBSideNavLink>Add New</MDBSideNavLink>
-              <MDBSideNavLink>Categories</MDBSideNavLink>
-              <MDBSideNavLink>Tags</MDBSideNavLink>
-            </MDBSideNavCollapse>
-          </MDBSideNavItem>
-          <MDBSideNavItem>
-            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse2} onClick={() => setModeCollapse2(!modeCollapse2)}>
-              <MDBIcon fas icon='grin' className='fa-fw me-3' />
-              Pages
-            </MDBSideNavLink>
-            <MDBSideNavCollapse show={modeCollapse2}>
-              <MDBSideNavLink>All Pages</MDBSideNavLink>
-              <MDBSideNavLink>Add New</MDBSideNavLink>
-            </MDBSideNavCollapse>
-          </MDBSideNavItem>
-          <MDBSideNavItem>
-            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse3} onClick={() => setModeCollapse3(!modeCollapse3)}>
-              <MDBIcon fas icon='grin' className='fa-fw me-3' />
-              Comments
-            </MDBSideNavLink>
-            <MDBSideNavCollapse show={modeCollapse3}>
-              <MDBSideNavLink>link 1</MDBSideNavLink>
-              <MDBSideNavLink>link 2</MDBSideNavLink>
-            </MDBSideNavCollapse>
-          </MDBSideNavItem>
-          <MDBSideNavItem>
-            <MDBSideNavLink icon='angle-down' shouldBeExpanded={modeCollapse4} onClick={() => setModeCollapse4(!modeCollapse4)}>
-              <MDBIcon fas icon='grin' className='fa-fw me-3' />
-              Users
-            </MDBSideNavLink>
-            <MDBSideNavCollapse show={modeCollapse4}>
-              <MDBSideNavLink>All Users</MDBSideNavLink>
-              <MDBSideNavLink>Add New</MDBSideNavLink>
-            </MDBSideNavCollapse>
-          </MDBSideNavItem>
-        </MDBSideNavMenu>
-      </MDBSideNav>
-
-      <div style={{ padding: '20px' }} className='text-center'>
-        <div style={{ padding: '20px' }} className='text-center'>
-          <MDBBtn onClick={() => setModeOpen(!modeOpen)}>
-            <MDBIcon fas icon='bars' />
-          </MDBBtn>
-        </div>
-
-        <div ref={sidenavContent} className='d-flex my-5 text-start'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc magna massa, ornare quis interdum a,
-          cursus in quam. Quisque risus libero, cursus eget eros vitae, aliquam placerat velit. Vivamus luctus
-          eros id sagittis luctus. Pellentesque felis nulla, rhoncus viverra nunc vitae, viverra aliquam ante. Ut
-          feugiat mattis tempor.
-        </div>
-      </div>
-    </>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            Responsive drawer
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: 'none', sm: 'block' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+      >
+        <Toolbar />
+        <Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+          sapien faucibus et molestie ac.
+        </Typography>
+        <Typography paragraph>
+          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
+          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
+          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
+          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
+          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
+          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
+          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
+          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
+          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
+          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
+          posuere sollicitudin aliquam ultrices sagittis orci a.
+        </Typography>
+      </Box>
+    </Box>
   );
 }
+
+SideBar.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
+
+export default SideBar;

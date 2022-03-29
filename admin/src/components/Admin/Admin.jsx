@@ -7,6 +7,7 @@ export default function Admin() {
   const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
   const history = useHistory();
   const handleLogout = () => {
+
     setCurrentAdmin(null);
 
     history.push("/login");
@@ -29,4 +30,5 @@ export default function Admin() {
       </div>
     </div>
   );
+
 }
