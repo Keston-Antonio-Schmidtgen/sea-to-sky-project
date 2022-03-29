@@ -6,8 +6,8 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 app.use(express.json());
 app.use("/users", require("./api/users"));
-// app.use("/posts", require("./api/posts"));
-// app.use("/posts/comments", require("./api/comments"));
+app.use("/posts", require("./api/posts"));
+//app.use("/posts/comments", require("./api/comments"));
 
 const connectToDb = require("./config/db");
 connectToDb();

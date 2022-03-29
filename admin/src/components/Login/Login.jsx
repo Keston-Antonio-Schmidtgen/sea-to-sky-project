@@ -21,6 +21,7 @@ export default function Login() {
   const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
 
   const history = useHistory();
+
   const handleLogin = async () => {
     console.log("data is", data);
     if (!data.pass) return;
@@ -30,10 +31,9 @@ export default function Login() {
     console.log("response is ", response);
 
     if (response.data.success) {
-      // user logged in successfully, update context and redirect him to home
-
       setCurrentAdmin(response.data.user);
-      console.log("currentAdmin", currentAdmin);
+      console.log("response.data.user", response.data.user);
+      console.log("currentAdmin is", currentAdmin);
       history.push("/admin");
     }
   };
