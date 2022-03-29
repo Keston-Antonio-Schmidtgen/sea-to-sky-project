@@ -26,7 +26,7 @@ export default function AddPost() {
 
       const response = await axios.post("/posts/add", data);
 
-      console.log("response is", response);
+      console.log("response is from add post", response);
     }
   };
 
