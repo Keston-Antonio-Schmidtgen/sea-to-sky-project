@@ -18,10 +18,6 @@ export default function Login() {
     pass: "",
   });
 
-<<<<<<< HEAD
-  const handleLogin = async () => {};
-  
-=======
   const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
 
   const history = useHistory();
@@ -41,7 +37,6 @@ export default function Login() {
       history.push("/admin");
     }
   };
->>>>>>> main
   return (
     <div className="text-center bg-images">
       <div className="register">
@@ -50,7 +45,6 @@ export default function Login() {
             <div className="col-lg-7"></div>
             <div className="col-lg-5">
               <h2 className="font-weight-light">Login</h2>
-<<<<<<< HEAD
 <form>
     <MDBInput 
     className='mb-4' 
@@ -76,35 +70,6 @@ export default function Login() {
     value={data.pass}
     onChange={(e) => setData({ ...data, pass: e.target.value })}
      />
-=======
-              <form>
-                <MDBInput
-                  className="mb-4"
-                  type="email"
-                  id="form2Example1"
-                  label="Email"
-                  value={data.email}
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
-                />
-                <MDBInput
-                  className="mb-4"
-                  type="username"
-                  id="form2Example1"
-                  label="Username"
-                  value={data.username}
-                  onChange={(e) =>
-                    setData({ ...data, username: e.target.value })
-                  }
-                />
-                <MDBInput
-                  className="mb-4"
-                  type="password"
-                  id="form2Example2"
-                  label="Password"
-                  value={data.pass}
-                  onChange={(e) => setData({ ...data, pass: e.target.value })}
-                />
->>>>>>> main
 
                 <MDBRow className="mb-4">
                   <MDBCol className="d-flex justify-content-center">
