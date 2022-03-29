@@ -6,7 +6,8 @@ import { WordContext } from "../context";
 
 export default function AddPost() {
   // Context
-  const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
+  const { currentAdmin, setCurrentAdmin, post, setPost } =
+    useContext(WordContext);
 
   const [data, setData] = useState({
     owner: currentAdmin._id,
@@ -20,20 +21,24 @@ export default function AddPost() {
 
   const handleSave = async () => {
     if (editorRef.current.getContent()) {
-      console.log("Hande Save:", editorRef.current.getContent());
+      console.log(
+        "editorRef.current.getContent is:",
+        editorRef.current.getContent()
+      );
 
       console.log("data is", data);
 
       const response = await axios.post("/posts/add", data);
 
-      console.log("response is", response);
+      console.log("response is from add post", response);
     }
   };
 
   const handleEditorChange = () => {
-    setCurrentAdmin({ ...data, body: editorRef.current.getContent() });
+    setData({ ...data, body: editorRef.current.getContent() });
+    console.log("post is", data);
   };
-
+  console.log("edit ref", editorRef);
   return (
     <div className="container">
       <input
