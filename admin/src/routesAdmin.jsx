@@ -5,6 +5,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Register from "./components/Register/Register";
 import AllPosts from "./components/Posts/AllPosts";
 import AddPost from "./components/Posts/AddPost";
+import Pages from "./components/Pages/Pages";
 import EmailConfirm from "./components/Email/Email";
 import ForgotPass from "./components/Password/ForgotPass";
 import ChangePass from "./components/Password/ChangePass";
@@ -19,10 +20,20 @@ export default function routes() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/allposts" component={AllPosts} />
+
+      {/* This routes shouldn't be here!
+      Please consider removing 'em and only render these components direct inside the admin page
+      */}
+
+      <Route path="/addpage" component={Pages} />
       <Route path="/emailconfirm/:token" exact component={EmailConfirm} />
       <Route path="/forgotpass" exact component={ForgotPass} />
       <Route path="/changepassword/:token" exact component={ChangePass} />
       <Route path="/addpost" component={AddPost} />
+
+      {/* /* -------------------------------------------------------------------------- 
+      /*                   End of routes that need to be removeed                   
+      /* --------------------------------------------------------------------------  */}
       <Route component={Unknown} />
     </Switch>
   );
