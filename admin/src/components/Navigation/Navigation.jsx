@@ -10,7 +10,7 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function Navigation() {
   return (
     <header>
       <MDBNavbar expand='lg' light bgColor='white' sticky>
@@ -53,45 +53,18 @@ export default function App() {
               <h1 className='mb-3'>Sea To Sky</h1>
               <h4 className='mb-3'>SCool Stuff</h4>
               <Link className='btn btn-outline-light btn-lg m-2' href='#!' role='button'>
-                Call to action
+
+                Explore 
               </Link>
-              <Link className='btn btn-outline-light btn-lg m-2' href='#!' role='button'>
-                Call to action
+              <Link className='btn btn-outline-light btn-lg m-2' to='./Register' role='button'>
+                Get Started
+
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      <p className='mt-4'>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
     </header>
   );
 }
