@@ -6,6 +6,9 @@ import Register from "./components/Register/Register";
 import AllPosts from "./components/Posts/AllPosts";
 import AddPost from "./components/Posts/AddPost";
 import Pages from "./components/Pages/Pages";
+import EmailConfirm from "./components/Email/Email";
+import ForgotPass from "./components/Password/ForgotPass";
+import ChangePass from "./components/Password/ChangePass";
 
 import React from "react";
 
@@ -23,6 +26,9 @@ export default function routes() {
       */}
 
       <Route path="/addpage" component={Pages} />
+      <Route path="/emailconfirm/:token" exact component={EmailConfirm} />
+      <Route path="/forgotpass" exact component={ForgotPass} />
+      <Route path="/changepassword/:token" exact component={ChangePass} />
       <Route path="/addpost" component={AddPost} />
 
       {/* /* -------------------------------------------------------------------------- 

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { WordContext } from "../context";
 import {
   MDBInput,
@@ -45,33 +45,31 @@ export default function Login() {
             <div className="col-lg-7"></div>
             <div className="col-lg-5">
               <h2 className="font-weight-light">Login</h2>
-              <form>
-                <MDBInput
-                  className="mb-4"
-                  type="email"
-                  id="form2Example1"
-                  label="Email"
-                  value={data.email}
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
-                />
-                <MDBInput
-                  className="mb-4"
-                  type="username"
-                  id="form2Example1"
-                  label="Username"
-                  value={data.username}
-                  onChange={(e) =>
-                    setData({ ...data, username: e.target.value })
-                  }
-                />
-                <MDBInput
-                  className="mb-4"
-                  type="password"
-                  id="form2Example2"
-                  label="Password"
-                  value={data.pass}
-                  onChange={(e) => setData({ ...data, pass: e.target.value })}
-                />
+<form>
+    <MDBInput 
+    className='mb-4' 
+    type='email' 
+    id='form2Example0' 
+    label='Email'
+    value={data.email}
+    onChange={(e) => setData({ ...data, email: e.target.value })}
+           />
+           <MDBInput 
+    className='mb-4' 
+    type='username' 
+    id='form2Example1' 
+    label='Username'
+    value={data.username}
+    onChange={(e) => setData({ ...data, username: e.target.value })}
+           />
+    <MDBInput 
+    className='mb-4' 
+    type='password' 
+    id='form2Example2' 
+    label='Password' 
+    value={data.pass}
+    onChange={(e) => setData({ ...data, pass: e.target.value })}
+     />
 
                 <MDBRow className="mb-4">
                   <MDBCol className="d-flex justify-content-center">
@@ -82,7 +80,7 @@ export default function Login() {
                     />
                   </MDBCol>
                   <MDBCol>
-                    <a href="#!">Forgot password?</a>
+                    <Link to="/forgotpass">Forgot Pass?</Link>
                   </MDBCol>
                 </MDBRow>
 
@@ -101,7 +99,7 @@ export default function Login() {
 
                 <div className="text-center">
                   <p>
-                    Not a member? <a href="#!">Register</a>
+                    Not a member? <Link to="/register">Register</Link>
                   </p>
                   <p>or login with:</p>
 
