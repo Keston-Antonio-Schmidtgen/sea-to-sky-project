@@ -52,12 +52,12 @@ export default function App() {
             <div className='text-white'>
               <h1 className='mb-3'>Sea To Sky</h1>
               <h4 className='mb-3'>SCool Stuff</h4>
-              <a className='btn btn-outline-light btn-lg m-2' href='#!' role='button'>
+              <Link className='btn btn-outline-light btn-lg m-2' href='#!' role='button'>
                 Call to action
-              </a>
-              <a className='btn btn-outline-light btn-lg m-2' href='#!' role='button'>
+              </Link>
+              <Link className='btn btn-outline-light btn-lg m-2' href='#!' role='button'>
                 Call to action
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -95,4 +95,5 @@ export default function App() {
     </header>
   );
 }
+
 
