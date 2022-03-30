@@ -38,7 +38,7 @@ export default function AddPost() {
     setData({ ...data, body: editorRef.current.getContent() });
     console.log("post is", data);
   };
-  console.log("edit ref", editorRef);
+
   return (
     <div className="container">
       <input

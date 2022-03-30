@@ -82,8 +82,6 @@ const uploadCloudinary = multer({ storage: storageCloudinary });
 //*************************************** */
 
 const sendEmail = require("../utils/mail/mail");
-const sendEmailResetPass = require("../utils/mail/mailResetPass");
-const { findByIdAndUpdate } = require("../models/User");
 
 router.post("/register", async (req, res) => {
   try {
@@ -100,7 +98,7 @@ router.post("/register", async (req, res) => {
 
     const token = await user.generateToken("1d");
     // send an email to the user that just got registered
-    sendEmail(user.email, token);
+    sendEmail(user.email, token, "welcome");
 
     console.log("Register: user created is", user);
 
@@ -293,7 +291,7 @@ router.post("/forgotpass", async (req, res) => {
 
     if (!userWithToken.resetToken) return send({ success: false, errorId: 2 });
 
-    sendEmailResetPass(user.email, userWithToken.resetToken);
+    sendEmail(user.email, userWithToken.resetToken, "forgotPass");
 
     res.send({ success: true });
   } catch (error) {
@@ -334,5 +332,4 @@ router.post("/changepass", async (req, res) => {
     res.send(error.message);
   }
 });
-
 module.exports = router;
