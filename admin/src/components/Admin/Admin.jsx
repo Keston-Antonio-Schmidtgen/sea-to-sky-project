@@ -2,6 +2,7 @@ import React from "react";
 import { WordContext } from "../context";
 import { useHistory, Link } from "react-router-dom";
 import { useContext } from "react";
+import Sidenav from '../SideNav/sidenav'
 
 export default function Admin() {
   const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
