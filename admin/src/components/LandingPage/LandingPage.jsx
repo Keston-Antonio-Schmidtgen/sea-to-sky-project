@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
-import LandingPageCards from "../LandingPageCards/LandingPageCards";
+import LandingPageCards from "./LandingPageCards/LandingPageCards";
 import Carousel from "../Carousel/Carousel";
 
 export default function LandingPage() {

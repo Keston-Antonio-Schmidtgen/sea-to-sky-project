@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 
 import StarterKit from "@tiptap/starter-kit";
@@ -11,12 +11,14 @@ import { Color } from "@tiptap/extension-color";
 // Extensions:
 import Focus from "@tiptap/extension-focus";
 import Placeholder from "@tiptap/extension-placeholder";
-import TextAlign from '@tiptap/extension-text-align'
+import TextAlign from "@tiptap/extension-text-align";
 
 // import styling
 import "./pages.scss";
 
 export default function Pages() {
+  const [editorContent, setEditorContent] = useState('')
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -46,10 +48,16 @@ export default function Pages() {
     content: ``,
   });
 
+  console.log(editorContent)
+
+  const handleEditorChange = e => {
+      setEditorContent(e)
+  }
+
   return (
     <div className="pageComponents w-50">
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} className="textEditorBox" />
+      <EditorContent editor={editor} className="textEditorBox" onChange={e => handleEditorChange(e)} />
     </div>
   );
 }
