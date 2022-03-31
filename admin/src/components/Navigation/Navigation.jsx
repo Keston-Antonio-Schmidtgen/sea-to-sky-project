@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import {
   MDBNavbar,
@@ -52,48 +53,20 @@ export default function Navigation() {
               <h1 className='mb-3'>Sea To Sky</h1>
               <h4 className='mb-3'>SCool Stuff</h4>
               <Link className='btn btn-outline-light btn-lg m-2' href='#!' role='button'>
+
                 Explore 
               </Link>
               <Link className='btn btn-outline-light btn-lg m-2' to='./Register' role='button'>
                 Get Started
+
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-{/* <div><h2 className="section-intro__title">Awesome Blogging Features</h2></div>
-<p>Vel aliquam quis, nulla pede mi commodo tristique nam hac. Luctus torquent velit felis commodo pellentesque nulla cras. Tincidunt hacvel alivquam quis nulla pede mi commodo tristique nam hac luctus torquent</p>
-
-      <p className='mt-4'>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p>
-      <p>Scroll down</p> */}
     </header>
   );
 }
+
+
