@@ -1,9 +1,10 @@
 import React from 'react';
-import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBCard,  MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
 export default function LandingPageCards() {
   return (
-    <MDBRow className='row-cols-1 row-cols-md-4 g-4'>
+    
+    <MDBRow className='row-cols-1 row-cols-md-4 g-4 my-2'>
       <MDBCol>
         <MDBCard>
           
@@ -53,5 +54,6 @@ export default function LandingPageCards() {
         </MDBCard>
       </MDBCol>
     </MDBRow>
+    
   );
 }
