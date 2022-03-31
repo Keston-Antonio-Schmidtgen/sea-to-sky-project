@@ -8,15 +8,15 @@ import {
   MDBCarouselCaption
 } from 'mdb-react-ui-kit';
 
-export default function Carousel() {
+export default function BlogThemes() {
   return (
-    <div class="container">
-      <div class="row align-items-center my-3">
-      <div class="col-lg-9">
-      <div class="text-center mt-5 pt-5">
-        <i class="fas fa-pen-nib text-danger fa-2x"></i>
-      <h2 class="mt-4 mb-5 text-center">Blog Themes</h2>
-      </div>
+    <div className="blog themes">
+      <div className="container">
+        <div className="row align-items-center my-5">
+        <div className="text-center mt-5 pt-5">
+        <i className="fas fa-pen-nib text-danger fa-2x"></i>
+        <h2 className="my-4">Blog Themes</h2>
+        </div>
     <MDBCarousel showControls showIndicators dark fade>
       <MDBCarouselInner>
         <MDBCarouselItem className='active'>
