@@ -26,7 +26,7 @@ import { Link } from "react-router-dom";
 // import mbd components
 import { MDBInput, MDBContainer } from "mdb-react-ui-kit";
 
-export default function Pages() {
+export default function Pages({ toggleClass }) {
   // bringing stuff from AddPost.jsx
   const { currentAdmin } = useContext(WordContext);
   const [bodyData, setBodyData] = useState("");
@@ -80,6 +80,10 @@ export default function Pages() {
     setData({ ...data, body: bodyData });
   }, [bodyData]);
 
+
+  const handleEditorChange = (e) => {
+    setEditorContent(e);
+  };
   // NOTE Or if you want to restore the content later (e. g. after an API call has finished), you can do that too:
   // maybe with useEffect...
   // TODO this should be in the reader component.
@@ -97,7 +101,7 @@ export default function Pages() {
   // console.log("Data BEFore Submit", data);
 
   return (
-    <div className="mt-5 mx-auto w-75">
+    <div className={`${toggleClass} mt-5 mx-auto w-75`}>
       <MDBContainer fluid>
         <MDBInput
           label="Title"

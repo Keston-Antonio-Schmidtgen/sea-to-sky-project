@@ -73,7 +73,7 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      <h2 class="mt-4 mb-5 text-center">Our Features</h2>
+      
     </header>
   );
 }
