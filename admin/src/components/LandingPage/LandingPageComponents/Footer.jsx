@@ -8,7 +8,7 @@ import {
   MDBRipple
 } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function Footer() {
   return (
     <MDBFooter className='text-center text-white' style={{ backgroundColor: '#caced1' }}>
       <MDBContainer className='p-4'>
