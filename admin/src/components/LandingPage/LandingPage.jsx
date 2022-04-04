@@ -6,13 +6,14 @@ import BlogThemes from "./LandingPageComponents/BlogThemes";
 import Features from "./LandingPageComponents/Features";
 import Contacts from "./LandingPageComponents/Contacts";
 import Pricing from "./LandingPageComponents/Pricing";
-
+import Blogs from "./LandingPageComponents/Blogs"
 export default function LandingPage() {
   return (
     <div className="landingPageContainer">
       <Navigation />
       <Features />
       <BlogThemes />
+      <Blogs />
       <Pricing />
       <About />
       <Contacts />
