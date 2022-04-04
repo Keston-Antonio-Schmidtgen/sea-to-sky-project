@@ -80,8 +80,6 @@ export default function Pages({ toggleClass }) {
     setData({ ...data, body: bodyData });
   }, [bodyData]);
 
-
-  
   // NOTE Or if you want to restore the content later (e. g. after an API call has finished), you can do that too:
   // maybe with useEffect...
   // TODO this should be in the reader component.

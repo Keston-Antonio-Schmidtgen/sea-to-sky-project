@@ -10,7 +10,7 @@ export default function LandingPageCards() {
         <i className="fas fa-pen-nib text-danger fa-2x"></i>
         <h2 className="my-4">Our Features</h2>
         </div>
-    <MDBRow className='row-cols-1 row-cols-md-4 g-4 my-2'>
+    <MDBRow className='row-cols-1 row-cols-md-4 g-4 my-2' style={{backgroundColor: "lightblue"}}>
       <MDBCol>
         <MDBCard>
           
