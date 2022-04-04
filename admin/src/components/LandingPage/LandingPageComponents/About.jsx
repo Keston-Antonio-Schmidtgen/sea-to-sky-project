@@ -6,7 +6,7 @@ export default function About() {
         <div class="row align-items-center my-5"></div>
 <section>
 
-      <div class="text-center mt-5 pt-5" >
+      <div class="text-center mt-1 pt-1" >
         <i class="fas fa-pen-nib text-danger fa-2x"></i>
         <h2 class="mt-4 mb-5">About Us</h2>
       </div>
@@ -22,7 +22,7 @@ export default function About() {
           
         </div>
       </div>
-
+      <hr class="my-5" />
     </section>
 </div>
 </div>

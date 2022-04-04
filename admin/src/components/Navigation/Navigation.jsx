@@ -48,6 +48,7 @@ export default function Navigation() {
           backgroundImage:
             "url('https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg')",
           height: 400,
+          
         }}
       >
         <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>

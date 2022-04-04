@@ -10,7 +10,7 @@ export default function Contacts() {
     <div className="contacts">
       <div class="container">
         <div class="row align-items-center my-5">
-        <div class="text-center mt-5 pt-5">
+        <div class="text-center mt-1 pt-1">
           <div class="col-lg-4">
           <i class="fas fa-pen-nib text-danger fa-2x"></i>
             <h1 class="font-weight-light my-4">Contact Us</h1>
