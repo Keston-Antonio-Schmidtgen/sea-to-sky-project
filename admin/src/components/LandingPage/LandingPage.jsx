@@ -1,11 +1,11 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
 import Footer from "./LandingPageComponents/Footer";
-import Carousel from "./LandingPageComponents/BlogThemes";
 import About from "./LandingPageComponents/About";
-import BlogThemes from "./LandingPageComponents/Contacts";
+import BlogThemes from "./LandingPageComponents/BlogThemes";
 import Features from "./LandingPageComponents/Features";
 import Contacts from "./LandingPageComponents/Contacts";
+import Pricing from "./LandingPageComponents/Pricing";
 
 export default function LandingPage() {
   return (
@@ -13,7 +13,7 @@ export default function LandingPage() {
       <Navigation />
       <Features />
       <BlogThemes />
-      <Carousel />
+      <Pricing />
       <About />
       <Contacts />
       <Footer />
