@@ -16,7 +16,10 @@ export default function routes() {
     <Switch>
       <Navigation />
       <Route path="/" exact element={<Home />} />
-      <Route path="/pages" exact element={<Pages />} />
+      {/* Route for the pages will continue the stuff with server
+        please refer to Alkis -> liveCoding -> 23-blog1 -> server when retrieved the tags the ideas are the same
+      */}
+      <Route path="/pages/:name" exact element={<Pages />} />
       <Route path="/posts" exact element={<Post />} />
       <Route path="/category" exact element={<Category />} />
       <Route path="/comments" exact element={<Comments />} />

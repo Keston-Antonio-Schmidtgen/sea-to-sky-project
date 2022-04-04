@@ -1,0 +1,27 @@
+.componentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: right;
+  width: 80vw;
+  min-height: 100vh;
+  background-color: #fafafa;
+  border: 2px solid red;
+}
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: right;
+  width: 80vw;
+  min-height: 100vh;
+  background-color: #fafafa;
+  border: 2px solid blue;
+}
+
+.show {
+  display: initial;
+}
+.hidden {
+  display: none;
+}

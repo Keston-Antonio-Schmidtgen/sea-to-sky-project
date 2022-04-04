@@ -1,16 +1,17 @@
 import React from "react";
 
-export default function Category({ toggleClass }) {
+export default function Home({ homeStyle, toggleClass }) {
   return (
     <div
       style={{
+        display: homeStyle,
         width: "150px",
         height: "150px",
         backgroundColor: "red",
       }}
-      className={toggleClass}
+      className={`${toggleClass}`}
     >
-      Category
+      Hello From home
     </div>
   );
 }

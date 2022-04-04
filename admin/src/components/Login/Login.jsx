@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { WordContext } from "../context";
 import {
   MDBInput,
@@ -80,7 +80,7 @@ export default function Login() {
                     />
                   </MDBCol>
                   <MDBCol>
-                    <a href="#!">Forgot password?</a>
+                    <Link to="/forgotpass">Forgot Pass?</Link>
                   </MDBCol>
                 </MDBRow>
 
@@ -99,7 +99,7 @@ export default function Login() {
 
                 <div className="text-center">
                   <p>
-                    Not a member? <a href="#!">Register</a>
+                    Not a member? <Link to="/register">Register</Link>
                   </p>
                   <p>or login with:</p>
 

@@ -4,7 +4,7 @@ import { useRef, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { WordContext } from "../context";
 
-export default function AddPost() {
+export default function AddPost({ toggleClass }) {
   // Context
   const { currentAdmin, setCurrentAdmin, post, setPost } =
     useContext(WordContext);
@@ -38,9 +38,9 @@ export default function AddPost() {
     setData({ ...data, body: editorRef.current.getContent() });
     console.log("post is", data);
   };
-  console.log("edit ref", editorRef);
+
   return (
-    <div className="container">
+    <div className={`${toggleClass} container`}>
       <input
         placeholder="Type the title"
         value={data.title}
