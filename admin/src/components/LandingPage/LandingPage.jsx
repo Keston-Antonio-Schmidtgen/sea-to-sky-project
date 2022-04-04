@@ -1,20 +1,21 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
-
-import "./landingPage.scss";
 import Footer from "./LandingPageComponents/Footer";
-import Carousel from "./LandingPageComponents/BlogThemes";
 import About from "./LandingPageComponents/About";
-import BlogThemes from "./LandingPageComponents/Contacts";
+import BlogThemes from "./LandingPageComponents/BlogThemes";
 import Features from "./LandingPageComponents/Features";
+import Contacts from "./LandingPageComponents/Contacts";
+import Pricing from "./LandingPageComponents/Pricing";
 
 export default function LandingPage() {
   return (
     <div className="landingPageContainer">
-      {/* <h1>Landing page</h1> */}
-      {<Navigation />}
+      <Navigation />
       <Features />
-      <Carousel />
+      <BlogThemes />
+      <Pricing />
+      <About />
+      <Contacts />
       <Footer />
 
       {/* <button>Explore (goes down and explores)</button> */}

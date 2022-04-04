@@ -10,18 +10,11 @@ export default function Contacts() {
     <div className="contacts">
       <div class="container">
         <div class="row align-items-center my-5">
-    <form>
-      <div class="text-center mt-5 pt-5">
-        <i class="fas fa-pen-nib text-danger fa-2x"></i>
-        <h2 class="my-4">Contact</h2>
-        <div class="row">
-          <div class="col-xl-8 mx-auto">
-            <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus recusandae aperiam
-              minima non ipsum a magni commodi at beatae, sint pariatur, sequi reprehenderit, laudantium suscipit sunt
-              libero consequuntur.</p>
-          </div>
-        </div>
-      </div>
+        <div class="text-center mt-1 pt-1">
+          <div class="col-lg-4">
+          <i class="fas fa-pen-nib text-danger fa-2x"></i>
+            <h1 class="font-weight-light my-4">Contact Us</h1>
+            <form>
       <MDBInput id='form4Example1' wrapperClass='mb-4' label='Name' />
       <MDBInput type='email' id='form4Example2' wrapperClass='mb-4' label='Email address' />
       <MDBInput wrapperClass='mb-4' textarea id='form4Example3' rows={4} label='Message' />
@@ -33,12 +26,15 @@ export default function Contacts() {
         defaultChecked
       />
 
-      <MDBBtn type='submit' className='mb-4' color='danger' block>
+      <MDBBtn type='submit' className='mb-4' block color= 'danger'>
         Sign in
       </MDBBtn>
     </form>
+          </div>
+        </div>
+      </div>
     </div>
     </div>
-    </div>
+    
   );
 }
