@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 
 import StarterKit from "@tiptap/starter-kit";
@@ -21,21 +21,23 @@ import { WordContext } from "../context";
 
 // import axios
 import axios from "axios";
+import { Link } from "react-router-dom";
+
+// import mbd components
+import { MDBInput, MDBContainer } from "mdb-react-ui-kit";
 
 export default function Pages() {
   // bringing stuff from AddPost.jsx
-  const { currentAdmin, setCurrentAdmin, post, setPost } =
-    useContext(WordContext);
-
+  const { currentAdmin } = useContext(WordContext);
+  const [bodyData, setBodyData] = useState("");
   const [data, setData] = useState({
     owner: currentAdmin._id,
     body: "",
     title: "",
     subtitle: "",
-    published: false,
+    published: true,
   });
 
-  const [editorContent, setEditorContent] = useState("");
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -51,14 +53,15 @@ export default function Pages() {
         // Use different placeholders depending on the node type:
         placeholder: ({ node }) => {
           if (node.type.name === "heading") {
-            return "What’s the title?";
+            return "What`s the title?";
           }
+          console.log("NODE", node)
 
           return "Can you add some further context?";
         },
       }),
       TextAlign.configure({
-        types: ["heading", "paragraph"],
+        types: ["heading", "paragraph"]
       }),
     ],
 
@@ -69,15 +72,20 @@ export default function Pages() {
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       // send the content to an API here
-      setData({...data, body: html});
+      setBodyData(html);
     },
   });
+
+  useEffect(() => {
+    setData({ ...data, body: bodyData });
+  }, [bodyData]);
 
   // NOTE Or if you want to restore the content later (e. g. after an API call has finished), you can do that too:
   // maybe with useEffect...
   // TODO this should be in the reader component.
   // editor.commands.setContent(`<p>Example Text</p>`)
 
+  // handle publish button
   const handleSave = async () => {
     console.log("data is", data);
 
@@ -86,12 +94,32 @@ export default function Pages() {
     console.log("response is from add page", response);
   };
 
-  console.log('Data BEFore Submit', data)
+  // console.log("Data BEFore Submit", data);
 
   return (
-    <div className="pageComponents w-50">
-      <MenuBar editor={editor} />
-      <EditorContent editor={editor} className="textEditorBox" />
+    <div className="mt-5 mx-auto w-75">
+      <MDBContainer fluid>
+        <MDBInput
+          label="Title"
+          id="form1"
+          type="text"
+          onChange={(e) => setData({ ...data, title: e.target.value })}
+        />
+        <MDBInput
+          label="Subject"
+          id="form2"
+          type="text"
+          onChange={(e) => setData({ ...data, subtitle: e.target.value })}
+        />
+      </MDBContainer>
+
+      <div className="pageComponents">
+        <MenuBar editor={editor} />
+        <EditorContent editor={editor} className="textEditorBox" />
+        <div className="text-end">
+          <button onClick={handleSave}>Publish</button>
+        </div>
+      </div>
     </div>
   );
 }

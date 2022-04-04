@@ -15,6 +15,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -37,7 +38,9 @@ function SideBar(props) {
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <Link to={text === 'Pages' ? 'addPage' : text} >
+              <ListItemText  primary={text} />
+            </Link>
           </ListItem>
         ))}
       </List>

@@ -1,155 +1,143 @@
+import { useState } from "react";
+import "./editorOptions.scss";
+import BasicTooltip from "./editorComponents/ToolTips";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import { palette } from '@mui/system';
+// import Menu Components
+
+import HeadingMenu from "./editorComponents/HeadingMenu";
+import TextMenu from "./editorComponents/TextMenu";
+import TextAlignMenu from "./editorComponents/TextAlignMenu";
+import UndoRedoMenu from "./editorComponents/UndoRedoMenu";
+import ListOptions from "./editorComponents/ListOptions";
+import ClearOptions from "./editorComponents/ClearOptions";
+
+// import icon
+
+import HorizontalRuleRoundedIcon from "@mui/icons-material/HorizontalRuleRounded";
+import TitleRoundedIcon from "@mui/icons-material/TitleRounded";
+import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
+
 const MenuBar = ({ editor }) => {
+  const [isHover, setIsHover] = useState(false);
+
+
   if (!editor) {
     return null;
   }
 
   return (
-    <>
-      <input
-        type="color"
-        onInput={(event) =>
-          editor.chain().focus().setColor(event.target.value).run()
+    <Box
+      className="menuBar mt-5"
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: 'space-between',
+        // width: 1,
+        border: (theme) => `1px solid ${theme.palette.divider}`,
+        borderRadius: 1,
+        bgcolor: "background.paper",
+        color: "text.secondary",
+        "& svg": {
+          m: 1.5,
+        },
+        "& hr": {
+          mx: 0.5,
+          height: "initial",
+        },
+        "& .MuiFilledInput-input": { padding: 0, cursor: "pointer" },
+      }}
+    >
+      {/* Undo Redo */}
+      <Box className="d-flex align-items-center">
+        <Box className="menuButton">
+          <UndoRedoMenu editor={editor} fontSize="large" />
+        </Box>
+        <Divider orientation="vertical" variant="middle" flexItem />
+
+        {/* Color PIcker */}
+        <TextField
+          variant="filled"
+          size="large"
+          type="color"
+          className="mx-5"
+          onInput={(event) =>
+            editor.chain().focus().setColor(event.target.value).run()
+          }
+          value={editor.getAttributes("textStyle").color}
+          defaultValue="Pick Color"
+          sx={{
+            width: 100,
+            pt: 0,
+            margin: 0,
+            "& .MuiTextField-root": { p: 0 },
+          }}
+        />
+        <Divider orientation="vertical" variant="middle" flexItem />
+
+        {/* Heading Options */}
+        <Box>
+          <BasicTooltip
+            tooltip="Title"
+            func={() => setIsHover(!isHover)}
+            // onBlur={(e) => setIsHover(!isHover)}
+            role="button"
+            className="menuButton"
+          >
+            <TitleRoundedIcon fontSize="large" />
+
+            <ArrowDropDownRoundedIcon fontSize="large" />
+          </BasicTooltip>
+          {isHover ? (
+            <HeadingMenu
+              onClick={() => setIsHover(!isHover)}
+              editor={editor}
+              styleHeading={{ zIndex: 10 }}
+            />
+          ) : (
+            ""
+          )}
+        </Box>
+        <Divider orientation="vertical" variant="middle" flexItem />
+        {/* Texts Options */}
+        <Box className="menuButton textMenu" role="button">
+          <TextMenu editor={editor} />
+        </Box>
+        <Divider orientation="vertical" variant="middle" flexItem />
+        {/* Lists Options */}
+        <Box className="menuButton textMenu" role="button">
+          <ListOptions editor={editor} />
+        </Box>
+        <Divider orientation="vertical" variant="middle" flexItem />
+
+        {/* Text Align */}
+
+        <Box className="menuButton textAlignMenu">
+          <TextAlignMenu editor={editor} fontSize="large" />
+        </Box>
+        <Divider orientation="vertical" variant="middle" flexItem />
+      </Box>
+      {/* Clear options */}
+      <Box
+      
+      >
+        <Box
+        sx={{
+          bgcolor: 'text.secondary',
+          color: 'text.primary',
+          '& .css-78trlr-MuiButtonBase-root-MuiIconButton-root:hover': {bgcolor: '#ffffff',
+          color: '#292929 !important'
+        
         }
-        value={editor.getAttributes("textStyle").color}
-      />
-      <button
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive("bold") ? "is-active" : ""}
-      >
-        bold
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive("italic") ? "is-active" : ""}
-      >
-        italic
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive("strike") ? "is-active" : ""}
-      >
-        strike
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        className={editor.isActive("code") ? "is-active" : ""}
-      >
-        code
-      </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-        clear marks
-      </button>
-      <button onClick={() => editor.chain().focus().clearNodes().run()}>
-        clear nodes
-      </button>
-      <button
-        onClick={() => editor.chain().focus().setParagraph().run()}
-        className={editor.isActive("paragraph") ? "is-active" : ""}
-      >
-        paragraph
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
-      >
-        h1
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
-      >
-        h2
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}
-      >
-        h3
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}
-      >
-        h4
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive("heading", { level: 5 }) ? "is-active" : ""}
-      >
-        h5
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive("heading", { level: 6 }) ? "is-active" : ""}
-      >
-        h6
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive("bulletList") ? "is-active" : ""}
-      >
-        bullet list
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive("orderedList") ? "is-active" : ""}
-      >
-        ordered list
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        className={editor.isActive("codeBlock") ? "is-active" : ""}
-      >
-        code block
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={editor.isActive("blockquote") ? "is-active" : ""}
-      >
-        blockquote
-      </button>
-      <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        horizontal rule
-      </button>
-      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        hard break
-      </button>
-      <button onClick={() => editor.chain().focus().undo().run()}>undo</button>
-      <button onClick={() => editor.chain().focus().redo().run()}>redo</button>
-      <div>
-        <button
-          onClick={() => editor.chain().focus().setTextAlign("left").run()}
-          className={editor.isActive({ textAlign: "left" }) ? "is-active" : ""}
+        }}
+        
         >
-          left
-        </button>
-        <button
-          onClick={() => editor.chain().focus().setTextAlign("center").run()}
-          className={
-            editor.isActive({ textAlign: "center" }) ? "is-active" : ""
-          }
-        >
-          center
-        </button>
-        <button
-          onClick={() => editor.chain().focus().setTextAlign("right").run()}
-          className={editor.isActive({ textAlign: "right" }) ? "is-active" : ""}
-        >
-          right
-        </button>
-        <button
-          onClick={() => editor.chain().focus().setTextAlign("justify").run()}
-          className={
-            editor.isActive({ textAlign: "justify" }) ? "is-active" : ""
-          }
-        >
-          justify
-        </button>
-        <button onClick={() => editor.chain().focus().unsetTextAlign().run()}>
-          unsetTextAlign
-        </button>
-      </div>
-    </>
+          <ClearOptions editor={editor} fontSize="large" />
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
