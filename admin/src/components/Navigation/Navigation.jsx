@@ -25,7 +25,7 @@ export default function Navigation() {
             <MDBNavbarNav right className="mb-2 mb-lg-0">
               <MDBNavbarItem active>
                 <MDBNavbarLink aria-current="page" href="#">
-                  Home
+                  Sea To Sky
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>

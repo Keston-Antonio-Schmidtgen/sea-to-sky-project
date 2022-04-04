@@ -1,16 +1,16 @@
 import React from 'react';
 import { MDBCard,  MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
-export default function LandingPageCards() {
+export default function Features() {
   return (
-    <div className="contacts">
+    <div className="features">
       <div className="container">
         <div className="row align-items-center my-5">
         <div className="text-center mt-5 pt-5">
         <i className="fas fa-pen-nib text-danger fa-2x"></i>
         <h2 className="my-4">Our Features</h2>
         </div>
-    <MDBRow className='row-cols-1 row-cols-md-4 g-4 my-2' style={{backgroundColor: "lightblue"}}>
+    <MDBRow className='row-cols-1 row-cols-md-4 g-5 my-2 ' style={{backgroundColor: "#FFBC97"}}>
       <MDBCol>
         <MDBCard>
           
