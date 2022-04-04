@@ -43,11 +43,12 @@ export default function Navigation() {
         </MDBContainer>
       </MDBNavbar>
 
+      
       <div
         className='p-5 text-center bg-image'
         style={{ backgroundImage: "url('https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg')", height: 400 }}
       >
-        <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
+        <div className= 'mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
             <div className='text-white'>
               <h1 className='mb-3'>Sea To Sky</h1>
@@ -64,7 +65,7 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-
+      
     </header>
   );
 }

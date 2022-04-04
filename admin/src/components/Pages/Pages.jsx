@@ -16,9 +16,26 @@ import TextAlign from "@tiptap/extension-text-align";
 // import styling
 import "./pages.scss";
 
-export default function Pages({ toggleClass }) {
-  const [editorContent, setEditorContent] = useState("");
+// import context
+import { WordContext } from "../context";
 
+// import axios
+import axios from "axios";
+
+export default function Pages( { toggleClass })  {
+  // bringing stuff from AddPost.jsx
+  const { currentAdmin, setCurrentAdmin, post, setPost } =
+    useContext(WordContext);
+
+  const [data, setData] = useState({
+    owner: currentAdmin._id,
+    body: "",
+    title: "",
+    subtitle: "",
+    published: false,
+  });
+
+  const [editorContent, setEditorContent] = useState("");
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -46,6 +63,14 @@ export default function Pages({ toggleClass }) {
     ],
 
     content: ``,
+    autofocus: true,
+
+    //NOTE TO update the state instantlly...
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      // send the content to an API here
+      setData({...data, body: html});
+    },
   });
 
   console.log(editorContent);
@@ -53,6 +78,20 @@ export default function Pages({ toggleClass }) {
   const handleEditorChange = (e) => {
     setEditorContent(e);
   };
+  // NOTE Or if you want to restore the content later (e. g. after an API call has finished), you can do that too:
+  // maybe with useEffect...
+  // TODO this should be in the reader component.
+  // editor.commands.setContent(`<p>Example Text</p>`)
+
+  const handleSave = async () => {
+    console.log("data is", data);
+
+    const response = await axios.post("/pages/add", data);
+
+    console.log("response is from add page", response);
+  };
+
+  console.log('Data BEFore Submit', data)
 
   return (
     <div className={`${toggleClass} pageComponents w-50`}>
@@ -62,6 +101,7 @@ export default function Pages({ toggleClass }) {
         className="textEditorBox"
         onChange={(e) => handleEditorChange(e)}
       />
+      <EditorContent editor={editor} className="textEditorBox" />
     </div>
   );
 }

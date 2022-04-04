@@ -1,9 +1,16 @@
 import React from 'react';
-import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBCard,  MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
 export default function LandingPageCards() {
   return (
-    <MDBRow className='row-cols-1 row-cols-md-4 g-4'>
+    <div className="contacts">
+      <div className="container">
+        <div className="row align-items-center my-5">
+        <div className="text-center mt-5 pt-5">
+        <i className="fas fa-pen-nib text-danger fa-2x"></i>
+        <h2 className="my-4">Our Features</h2>
+        </div>
+    <MDBRow className='row-cols-1 row-cols-md-4 g-4 my-2'>
       <MDBCol>
         <MDBCard>
           
@@ -53,5 +60,8 @@ export default function LandingPageCards() {
         </MDBCard>
       </MDBCol>
     </MDBRow>
+    </div>
+    </div>
+    </div>
   );
 }
