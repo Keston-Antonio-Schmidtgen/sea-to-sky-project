@@ -9,14 +9,11 @@ export default function Contacts() {
   return (
     <div className="contacts">
       <div class="container">
-        <div class="row align-items-center my-5 ">
+        <div class="row align-items-center my-5">
         <div class="text-center mt-5 pt-5">
-          <div class="col-lg-8">
-            
+          <div class="col-lg-4">
           <i class="fas fa-pen-nib text-danger fa-2x"></i>
-          <div class="col-lg-6">
             <h1 class="font-weight-light my-4">Contact Us</h1>
-            
             <form>
       <MDBInput id='form4Example1' wrapperClass='mb-4' label='Name' />
       <MDBInput type='email' id='form4Example2' wrapperClass='mb-4' label='Email address' />
@@ -38,6 +35,6 @@ export default function Contacts() {
       </div>
     </div>
     </div>
-    </div>
+    
   );
 }
