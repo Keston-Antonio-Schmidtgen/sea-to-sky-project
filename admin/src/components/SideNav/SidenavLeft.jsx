@@ -56,12 +56,15 @@ export default function SideNavLeft({ setShowComponent }) {
               <MDBSideNavLink onClick={() => setShowComponent("allPosts")}>
                 All Posts
               </MDBSideNavLink>{" "}
-              <Link className="side" to="/addpost">
-                {" "}
+              <MDBSideNavLink onClick={() => setShowComponent("addPost")}>
                 Add New
-              </Link>
-              <MDBSideNavLink>Categories</MDBSideNavLink>
-              <MDBSideNavLink>Tags</MDBSideNavLink>
+              </MDBSideNavLink>{" "}
+              <MDBSideNavLink onClick={() => setShowComponent("categories")}>
+                Categories
+              </MDBSideNavLink>
+              <MDBSideNavLink onClick={() => setShowComponent("tags")}>
+                Tags
+              </MDBSideNavLink>
             </MDBSideNavCollapse>
           </MDBSideNavItem>
           <MDBSideNavItem>
@@ -110,24 +113,10 @@ export default function SideNavLeft({ setShowComponent }) {
             </MDBSideNavCollapse>
           </MDBSideNavItem>
           <MDBSideNavItem>
-            <hr />
-            <MDBSideNavLink
-              icon="angle-down"
-              shouldBeExpanded={groupCollapseOpened2 === "groupCollapse4"}
-              onClick={() => toggleGroupCollapse2("groupCollapse4")}
-            >
-              <MDBIcon fas icon="grin" className="fa-fw me-3" />
-              Category 4
+            <MDBSideNavLink onClick={() => setShowComponent("media")}>
+              <MDBIcon far icon="smile" className="fa-fw me-3" />
+              Media
             </MDBSideNavLink>
-            <MDBSideNavCollapse id="groupCollapse4" show={groupCollapseOpened2}>
-              <Link to="/addpost">Link 9</Link>
-              <MDBSideNavLink>
-                {" "}
-                <Link style={{ color: "black" }} to="/addpost">
-                  Link 9
-                </Link>
-              </MDBSideNavLink>
-            </MDBSideNavCollapse>
           </MDBSideNavItem>
         </MDBSideNavMenu>
       </MDBSideNav>

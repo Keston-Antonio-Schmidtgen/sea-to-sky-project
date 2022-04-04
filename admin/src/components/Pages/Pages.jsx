@@ -55,13 +55,13 @@ export default function Pages({ toggleClass }) {
           if (node.type.name === "heading") {
             return "What`s the title?";
           }
-          console.log("NODE", node)
+          console.log("NODE", node);
 
           return "Can you add some further context?";
         },
       }),
       TextAlign.configure({
-        types: ["heading", "paragraph"]
+        types: ["heading", "paragraph"],
       }),
     ],
 
@@ -80,10 +80,6 @@ export default function Pages({ toggleClass }) {
     setData({ ...data, body: bodyData });
   }, [bodyData]);
 
-
-  const handleEditorChange = (e) => {
-    setEditorContent(e);
-  };
   // NOTE Or if you want to restore the content later (e. g. after an API call has finished), you can do that too:
   // maybe with useEffect...
   // TODO this should be in the reader component.
