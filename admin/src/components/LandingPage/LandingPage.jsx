@@ -1,8 +1,6 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
-import Footer from "../Footer/Footer";
-import LandingPageCards from "./LandingPageCards/LandingPageCards";
-import Carousel from "../Carousel/Carousel";
+
 import "./landingPage.scss";
 import Footer from "./LandingPageComponents/Footer";
 import Carousel from "./LandingPageComponents/BlogThemes";
@@ -15,7 +13,7 @@ export default function LandingPage() {
     <div className="landingPageContainer">
       {/* <h1>Landing page</h1> */}
       {<Navigation />}
-      <LandingPageCards />
+      <Features />
       <Carousel />
       <Footer />
 

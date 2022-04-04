@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 
 import StarterKit from "@tiptap/starter-kit";
@@ -22,7 +22,7 @@ import { WordContext } from "../context";
 // import axios
 import axios from "axios";
 
-export default function Pages( { toggleClass })  {
+export default function Pages({ toggleClass }) {
   // bringing stuff from AddPost.jsx
   const { currentAdmin, setCurrentAdmin, post, setPost } =
     useContext(WordContext);
@@ -69,7 +69,7 @@ export default function Pages( { toggleClass })  {
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       // send the content to an API here
-      setData({...data, body: html});
+      setData({ ...data, body: html });
     },
   });
 
@@ -91,7 +91,7 @@ export default function Pages( { toggleClass })  {
     console.log("response is from add page", response);
   };
 
-  console.log('Data BEFore Submit', data)
+  console.log("Data BEFore Submit", data);
 
   return (
     <div className={`${toggleClass} pageComponents w-50`}>
