@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard,  MDBCardBody, MDBCardHeader, MDBCardTitle, MDBCardText, MDBBtn, MDBCardFooter, MDBRow, MDBCol  } from 'mdb-react-ui-kit';
+import { MDBCard,  MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBBtn, MDBCardFooter, MDBCardHeader  } from 'mdb-react-ui-kit';
 
 export default function Pricing() {
   return (
@@ -11,33 +11,58 @@ export default function Pricing() {
         <h2 className="my-4">Our Prices</h2>
         </div>
         
-        <MDBRow className='row-cols-1 row-cols-md-4 g-5 my-2 ' style={{backgroundColor: "#FFBC97"}}>
+     
+    <MDBRow className='row-cols-1 row-cols-md-4 g-4'>
       <MDBCol>
         <MDBCard>
-
-            
-        <MDBCard alignment='center'>
-      <MDBCardHeader>SINGLE USE</MDBCardHeader>
+          
+        <MDBCardHeader><h5>SINGLE USE</h5></MDBCardHeader>
       <MDBCardBody>
         <MDBCardTitle>€ 129 /year</MDBCardTitle>
-        <MDBCardText>Usage for 1 domain/app:</MDBCardText>
-        <MDBBtn href='#'>Go somewhere</MDBBtn>
+        <MDBCardText>With supporting text below as a natural lead-in to additional content.</MDBCardText>
+        <MDBBtn href='#' color='danger'>BUY NOW</MDBBtn>
       </MDBCardBody>
-      <MDBCardFooter>Premium Components</MDBCardFooter>
-    </MDBCard>
-
-    <MDBCard alignment='center'>
-      <MDBCardHeader>Essential</MDBCardHeader>
+      <MDBCardFooter>Usage for 1 domain/app</MDBCardFooter>
+        </MDBCard>
+      </MDBCol>
+      <MDBCol>
+        <MDBCard>
+         
+        <MDBCardHeader><h5>ESSENTIAL</h5></MDBCardHeader>
       <MDBCardBody>
         <MDBCardTitle>€ 219 /year</MDBCardTitle>
-        <MDBCardText>Lifetime & unlimited usage of:</MDBCardText>
-        <MDBBtn href='#'>Go somewhere</MDBBtn>
+        <MDBCardText>With supporting text below as a natural lead-in to additional content.</MDBCardText>
+        <MDBBtn href='#' color='info'>BUY NOWe</MDBBtn>
       </MDBCardBody>
-      <MDBCardFooter>2 days ago</MDBCardFooter>
-    </MDBCard>
-    </MDBCard>
+      <MDBCardFooter>Lifetime & unlimited usage</MDBCardFooter>
+        </MDBCard>
+      </MDBCol>
+      <MDBCol>
+        <MDBCard>
+         
+        <MDBCardHeader><h5>ADVANCED</h5></MDBCardHeader>
+      <MDBCardBody>
+        <MDBCardTitle>€ 377 /year</MDBCardTitle>
+        <MDBCardText>With supporting text below as a natural lead-in to additional content.</MDBCardText>
+        <MDBBtn href='#' color='secondary'>BUY NOW</MDBBtn>
+      </MDBCardBody>
+      <MDBCardFooter>Lifetime & unlimited usage</MDBCardFooter>
+        </MDBCard>
+      </MDBCol>
+      <MDBCol>
+        <MDBCard>
+         
+        <MDBCardHeader><h5>BUNDLE</h5></MDBCardHeader>
+      <MDBCardBody>
+        <MDBCardTitle>599 /year</MDBCardTitle>
+        <MDBCardText>With supporting text below as a natural lead-in to additional content.</MDBCardText>
+        <MDBBtn href='#' color='success'>BUY NOW</MDBBtn>
+      </MDBCardBody>
+      <MDBCardFooter>The Bundle contains everything</MDBCardFooter>
+        </MDBCard>
       </MDBCol>
     </MDBRow>
+ 
     <hr class="my-5" />
     </div>
     </div>
