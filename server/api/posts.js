@@ -81,5 +81,32 @@ router.put("/likeadd/:postid/:userid", auth, async (req, res) => {
     res.send(error.message);
   }
 });
+router.get("/single/:id", async (req, res) => {
+  try {
+    const post = await Post.findOne({ _id: req.params.id }).populate({
+      path: "owner",
+      select: "username age address image",
+    });
+    // console.log('posts list', posts)
+    res.send({ success: true, post });
+  } catch (error) {
+    console.log("Posts list ERROR", error.message);
+    res.send(error.message);
+  }
+});
+
+router.get("/searchbytag/:tag", async (req, res) => {
+  try {
+    const posts = await Post.find({ tags: { $in: req.params.tag } }).populate({
+      path: "owner",
+      select: "username age address image",
+    });
+    // console.log('posts list', posts)
+    res.send({ success: true, posts });
+  } catch (error) {
+    console.log("Posts list ERROR", error.message);
+    res.send(error.message);
+  }
+});
 
 module.exports = router;
