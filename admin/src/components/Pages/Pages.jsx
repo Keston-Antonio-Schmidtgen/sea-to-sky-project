@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 
 import StarterKit from "@tiptap/starter-kit";
@@ -16,8 +16,8 @@ import TextAlign from "@tiptap/extension-text-align";
 // import styling
 import "./pages.scss";
 
-export default function Pages() {
-  const [editorContent, setEditorContent] = useState('')
+export default function Pages({ toggleClass }) {
+  const [editorContent, setEditorContent] = useState("");
 
   const editor = useEditor({
     extensions: [
@@ -48,16 +48,20 @@ export default function Pages() {
     content: ``,
   });
 
-  console.log(editorContent)
+  console.log(editorContent);
 
-  const handleEditorChange = e => {
-      setEditorContent(e)
-  }
+  const handleEditorChange = (e) => {
+    setEditorContent(e);
+  };
 
   return (
-    <div className="pageComponents w-50">
+    <div className={`${toggleClass} pageComponents w-50`}>
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} className="textEditorBox" onChange={e => handleEditorChange(e)} />
+      <EditorContent
+        editor={editor}
+        className="textEditorBox"
+        onChange={(e) => handleEditorChange(e)}
+      />
     </div>
   );
 }
