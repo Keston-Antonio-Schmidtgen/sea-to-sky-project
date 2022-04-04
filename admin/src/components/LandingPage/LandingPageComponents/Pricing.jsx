@@ -12,7 +12,9 @@ export default function Pricing() {
         </div>
         
      
+
     <MDBRow className='row-cols-1 row-cols-md-4 g-4'>
+
       <MDBCol>
         <MDBCard>
           
