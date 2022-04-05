@@ -9,12 +9,15 @@ export default function AddPost({ toggleClass }) {
   const { currentAdmin, setCurrentAdmin, post, setPost } =
     useContext(WordContext);
 
+  const [tag, setTag] = useState("");
+
   const [data, setData] = useState({
     owner: currentAdmin._id,
     body: "",
     title: "",
     subtitle: "",
     published: false,
+    tags: [],
   });
 
   const editorRef = useRef(null);
@@ -39,6 +42,20 @@ export default function AddPost({ toggleClass }) {
     console.log("post is", data);
   };
 
+  const handleTagSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("this is form submit");
+    // add Tag to the data object at property tags.
+    setData({ ...data, tags: [...data.tags, tag] });
+    setTag("");
+  };
+  const handleDeleteTag = (idx) => {
+    const oldData = { ...data };
+    data.tags.splice(idx, 1);
+
+    setData({ ...oldData });
+  };
   return (
     <div className={`${toggleClass} container`}>
       <input
@@ -73,7 +90,38 @@ export default function AddPost({ toggleClass }) {
         }}
         onEditorChange={handleEditorChange}
       />
+      <div>
+        <form onSubmit={handleTagSubmit}>
+          <input
+            type="text"
+            value={tag}
+            onChange={(e) => setTag(e.target.value)}
+          />
+        </form>
+        <div style={{ display: "flex" }}>
+          {data.tags.length
+            ? data.tags.map((item, idx) => (
+                <div
+                  style={{ border: "1px solid", marginRight: "10px" }}
+                  key={idx}
+                >
+                  {item}{" "}
+                  <span
+                    onClick={(e) => handleDeleteTag(idx)}
+                    style={{ color: "red" }}
+                  >
+                    x
+                  </span>
+                </div>
+              ))
+            : "No tags added"}
+        </div>
+      </div>
 
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <Link to="/home">Home</Link>
+        <button onClick={handleSave}>Save</button>
+      </div>
       <Link to="/admin">Back to Home</Link>
       <button onClick={handleSave}>Save</button>
     </div>

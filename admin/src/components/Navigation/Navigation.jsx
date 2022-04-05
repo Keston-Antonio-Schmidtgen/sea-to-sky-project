@@ -25,7 +25,7 @@ export default function Navigation() {
             <MDBNavbarNav right className="mb-2 mb-lg-0">
               <MDBNavbarItem active>
                 <MDBNavbarLink aria-current="page" href="#">
-                  Home
+                  Sea To Sky
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
@@ -48,6 +48,7 @@ export default function Navigation() {
           backgroundImage:
             "url('https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg')",
           height: 400,
+          
         }}
       >
         <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
