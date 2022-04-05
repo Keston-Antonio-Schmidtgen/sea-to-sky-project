@@ -99,7 +99,7 @@ export default function AddPost({ toggleClass }) {
           />
         </form>
         <div style={{ display: "flex" }}>
-          {data.tags.length
+          {data?.tags?.length
             ? data.tags.map((item, idx) => (
                 <div
                   style={{ border: "1px solid", marginRight: "10px" }}
