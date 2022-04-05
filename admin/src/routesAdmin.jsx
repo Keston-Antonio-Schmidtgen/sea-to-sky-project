@@ -9,7 +9,7 @@ import Pages from "./components/Pages/Pages";
 import EmailConfirm from "./components/Email/Email";
 import ForgotPass from "./components/Password/ForgotPass";
 import ChangePass from "./components/Password/ChangePass";
-
+import Home from "./components/Home/Home";
 import React from "react";
 
 export default function routes() {
@@ -20,6 +20,7 @@ export default function routes() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/allposts" component={AllPosts} />
+      <Route path="/home" component={Home} />
 
       {/* This routes shouldn't be here!
       Please consider removing 'em and only render these components direct inside the admin page

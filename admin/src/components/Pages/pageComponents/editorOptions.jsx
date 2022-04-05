@@ -4,7 +4,7 @@ import BasicTooltip from "./editorComponents/ToolTips";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import { palette } from '@mui/system';
+import { palette } from "@mui/system";
 // import Menu Components
 
 import HeadingMenu from "./editorComponents/HeadingMenu";
@@ -23,7 +23,6 @@ import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 const MenuBar = ({ editor }) => {
   const [isHover, setIsHover] = useState(false);
 
-
   if (!editor) {
     return null;
   }
@@ -34,8 +33,8 @@ const MenuBar = ({ editor }) => {
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: 'space-between',
-        // width: 1,
+        justifyContent: "space-between",
+        // width: 200,
         border: (theme) => `1px solid ${theme.palette.divider}`,
         borderRadius: 1,
         bgcolor: "background.paper",
@@ -131,19 +130,16 @@ const MenuBar = ({ editor }) => {
         <Divider orientation="vertical" variant="middle" flexItem />
       </Box>
       {/* Clear options */}
-      <Box
-      
-      >
+      <Box>
         <Box
-        sx={{
-          bgcolor: 'text.secondary',
-          color: 'text.primary',
-          '& .css-78trlr-MuiButtonBase-root-MuiIconButton-root:hover': {bgcolor: '#ffffff',
-          color: '#292929 !important'
-        
-        }
-        }}
-        
+          sx={{
+            bgcolor: "text.secondary",
+            color: "text.primary",
+            "& .css-78trlr-MuiButtonBase-root-MuiIconButton-root:hover": {
+              bgcolor: "#ffffff",
+              color: "#292929 !important",
+            },
+          }}
         >
           <ClearOptions editor={editor} fontSize="large" />
         </Box>

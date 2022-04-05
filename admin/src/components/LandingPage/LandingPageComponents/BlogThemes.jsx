@@ -13,7 +13,7 @@ export default function BlogThemes() {
     <div className="blog themes">
       <div className="container">
         <div className="row align-items-center my-5">
-        <div className="text-center mt-5 pt-5">
+        <div className="text-center mt-1 pt-1">
         <i className="fas fa-pen-nib text-danger fa-2x"></i>
         <h2 className="my-4">Blog Themes</h2>
         </div>
@@ -43,6 +43,7 @@ export default function BlogThemes() {
         </MDBCarouselItem>
       </MDBCarouselInner>
     </MDBCarousel>
+    <hr class="my-5" />
     </div>
     </div>
     </div>

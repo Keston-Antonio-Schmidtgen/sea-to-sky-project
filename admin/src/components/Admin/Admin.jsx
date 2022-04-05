@@ -11,6 +11,10 @@ import AllPosts from "../Posts/AllPosts";
 import AllPages from "../Pages/Pages";
 import Users from "../Users/Users";
 import Category from "../Category/Category";
+import AddPost from "../Posts/AddPost";
+import Tags from "../Tags/Tags";
+import Comments from "../Comments/Comments";
+import Media from "../Media/Media";
 
 export default function Admin() {
   /* ------------------COMPONENT RENDERING STATES----------------------- */
@@ -28,6 +32,7 @@ export default function Admin() {
   console.log("show home is from admin", showComponent);
   return (
     <div className="adminContainer">
+      <SideNavLeft setShowComponent={setShowComponent} />
       <button onClick={handleLogout}>LogOut</button>
       <div className="componentContainer">
         <Home toggleClass={showComponent === "home" ? "show" : "hidden"} />
@@ -38,11 +43,18 @@ export default function Admin() {
           toggleClass={showComponent === "allPages" ? "show" : "hidden"}
         />
         <Category
-          toggleClass={showComponent === "category" ? "show" : "hidden"}
+          toggleClass={showComponent === "categories" ? "show" : "hidden"}
         />
         <Users toggleClass={showComponent === "users" ? "show" : "hidden"} />
+        <Tags toggleClass={showComponent === "tags" ? "show" : "hidden"} />
+        <AddPost
+          toggleClass={showComponent === "addPost" ? "show" : "hidden"}
+        />
+        <Comments
+          toggleClass={showComponent === "comments" ? "show" : "hidden"}
+        />
+        <Media toggleClass={showComponent === "media" ? "show" : "hidden"} />
       </div>
-      <SideNavLeft setShowComponent={setShowComponent} />
     </div>
   );
 }

@@ -33,6 +33,7 @@ const postSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  tags: [],
 });
 
 const Post = mongoose.model("Post", postSchema);
