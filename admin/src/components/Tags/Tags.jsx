@@ -10,9 +10,8 @@ export default function Tags({ toggleClass }) {
   const [selectedRows, setSelectedRows] = useState([]);
   const [basicData, setBasicData] = useState({
     columns: ["Title", "Tags", "Published", "Date"],
-    rows: [
-      /*  posts.map((post) => [post.title, post.tags, post.published, post.date]), */
-    ],
+    rows: [],
+    /*  posts.map((post) => [post.title, post.tags, post.published, post.date]), */
   });
 
   useEffect(() => {
@@ -22,33 +21,49 @@ export default function Tags({ toggleClass }) {
       console.log("tag response is", response);
 
       setPosts([...response.data]);
-
+      console.log("posts are", posts);
       let set = new Set();
 
-      posts.map((item) => {
-        item.tags.map((tag) => {
+      posts?.map((item) => {
+        item?.tags?.map((tag) => {
           set.add(tag);
         });
       });
       setTags([...set]);
 
-      basicData.rows = posts.map((post) => [
+      /*   posts.map((post) => [
         post.title,
         post.tags ? post.tags.join(", ") : "",
         post.published.toString(),
         post.date,
-      ]);
+      ]); */
+
+      console.log("hello");
     };
 
     getData();
-  }, []);
+    const allRows = [];
+
+    posts?.map((item, idx) => {
+      console.log("item is", Object.values(item));
+      let array = [];
+      array.push(item.title);
+      array.push(item.tags ? item.tags.join(", ") : "");
+      array.push(item.published.toString());
+      array.push(item.date);
+      allRows[idx] = [...array];
+    });
+    console.log("allRows are", allRows);
+    setBasicData({ ...basicData, rows: [...allRows] });
+  }, [toggleClass]);
 
   console.log("rows are", basicData.rows);
+  console.log("baisc data", basicData);
   return (
     <div className={toggleClass}>
       All tags from all posts are:{" "}
       <h1>
-        {tags.map((item) => (
+        {tags?.map((item) => (
           <div>{item}</div>
         ))}
       </h1>{" "}
