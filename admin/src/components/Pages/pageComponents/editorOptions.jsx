@@ -39,16 +39,11 @@ const MenuBar = ({ editor }) => {
         borderRadius: 1,
         bgcolor: "background.paper",
         color: "text.secondary",
-        "& svg": {
-          m: 1.5,
-        },
         "& hr": {
           mx: 0.5,
           height: "initial",
         },
         "& .MuiFilledInput-input": { padding: 0, cursor: "pointer" },
-        // "&  * ": {width: 'max-content'}
-        "& .MuiIconButton-sizeMedium  > svg": { margin: 0 }
       }}
     >
       {/* Undo Redo */}
