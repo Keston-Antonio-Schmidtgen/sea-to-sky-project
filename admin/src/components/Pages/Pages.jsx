@@ -81,9 +81,7 @@ export default function Pages({ toggleClass }) {
   }, [bodyData]);
 
 
-  const handleEditorChange = (e) => {
-    setEditorContent(e);
-  };
+ 
   // NOTE Or if you want to restore the content later (e. g. after an API call has finished), you can do that too:
   // maybe with useEffect...
   // TODO this should be in the reader component.
