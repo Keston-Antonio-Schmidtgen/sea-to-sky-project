@@ -47,11 +47,22 @@ const MenuBar = ({ editor }) => {
           height: "initial",
         },
         "& .MuiFilledInput-input": { padding: 0, cursor: "pointer" },
+        // "&  * ": {width: 'max-content'}
+        "& .MuiIconButton-sizeMedium  > svg": { margin: 0 }
       }}
     >
       {/* Undo Redo */}
-      <Box className="d-flex align-items-center">
-        <Box className="menuButton">
+      <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: 'space-between',
+      }}>
+        <Box 
+        sx={{
+          width: 'fit-content'
+        }}
+        >
           <UndoRedoMenu editor={editor} fontSize="large" />
         </Box>
         <Divider orientation="vertical" variant="middle" flexItem />
