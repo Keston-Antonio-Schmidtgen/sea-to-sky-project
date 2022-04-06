@@ -42,20 +42,22 @@ export default function Navigation() {
         </MDBContainer>
       </MDBNavbar>
 
+<section>
       <div
         className="p-5 text-center bg-image"
         style={{
           backgroundImage:
-            "url('https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg')",
-          height: 400,
-          
-        }}
-      >
-        <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
-          <div className="d-flex justify-content-center align-items-center h-100">
-            <div className="text-white">
+            "url('https://mdbootstrap.com/img/Photos/new-templates/content-creator/img1.jpg')",
+          height: 900, }} >
+        <div className="mask" style={{ backgroundColor: "rgba(249, 195, 122, .2)" }}>
+          <div className="d-flex justify-content-center align-items-center h-100"> 
+          <div className="row w-100">
+            <div className="col-xl-10 mx-auto">
+              <div className="card mask-custom text-white text-center" ClassName="border-radius: .75rem;" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
+                <div className="card-body p-5">
+                  <div className="text-white">
               <h1 className="mb-3">Sea To Sky</h1>
-              <h4 className="mb-3">SCool Stuff</h4>
+              <h4 className="mb-3">Cool Stuff</h4>
               <Link
                 className="btn btn-outline-light btn-lg m-2"
                 href="#!"
@@ -71,10 +73,14 @@ export default function Navigation() {
                 Get Started
               </Link>
             </div>
+               </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
-      
+    </section>
     </header>
   );
 }
