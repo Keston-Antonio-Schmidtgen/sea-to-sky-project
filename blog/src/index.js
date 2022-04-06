@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import SeaContext from "./components/context";
 import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
+import Navigation from './components/Navigation/Navigation'
 
 ReactDOM.render(
-  <SeaContext>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </SeaContext>,
+  <BrowserRouter>
+    <SeaContext>
+    <Navigation />
+      <Routes />
+    </SeaContext>
+  </BrowserRouter>,
   document.getElementById("root")
 );

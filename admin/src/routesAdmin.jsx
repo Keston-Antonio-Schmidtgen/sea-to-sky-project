@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Admin from "./components/Admin/Admin";
 import Login from "./components/Login/Login";
@@ -10,7 +11,6 @@ import EmailConfirm from "./components/Email/Email";
 import ForgotPass from "./components/Password/ForgotPass";
 import ChangePass from "./components/Password/ChangePass";
 import Home from "./components/Home/Home";
-import React from "react";
 
 export default function routes() {
   return (
