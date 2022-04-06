@@ -8,6 +8,7 @@ app.use(express.json());
 app.use("/users", require("./api/users"));
 app.use("/posts", require("./api/posts"));
 app.use("/pages", require("./api/pages"));
+app.use("/media", require("./api/media"));
 //app.use("/posts/comments", require("./api/comments"));
 
 const connectToDb = require("./config/db");
