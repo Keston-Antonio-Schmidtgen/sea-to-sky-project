@@ -3,10 +3,10 @@ const {Schema} = mongoose
 
 const mediaSchema = new Schema({
 
-// owner: {
-//     type: Schema.Types.ObjectId,
-//     ref: 'User'
-// },
+owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+},
 
 image: {
     type: String

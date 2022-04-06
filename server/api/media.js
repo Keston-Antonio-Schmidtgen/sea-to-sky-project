@@ -7,6 +7,11 @@ const multer = require('multer')
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
  
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET
+})
 
 const storageCloudinary = new CloudinaryStorage({
   cloudinary: cloudinary,
@@ -33,7 +38,7 @@ router.post('/add' , uploadCloudinary.single('image'), async (req, res) => {
         const newImage = new Media(req.body);
         
         const image = await newImage.save()
-        // .then( item => item.populate({path: 'owner', select: 'usarname image'}))
+        .then( item => item.populate({path: 'owner', select: 'usarname image'}))
         console.log('newimage is', image);
         if (!image) return res.send({success: false, errorId: 2})
 
