@@ -53,12 +53,10 @@ export default function Tags({ toggleClass }) {
       array.push(item.date);
       allRows[idx] = [...array];
     });
-    console.log("allRows are", allRows);
+
     setBasicData({ ...basicData, rows: [...allRows] });
   }, [toggleClass]);
 
-  console.log("rows are", basicData.rows);
-  console.log("baisc data", basicData);
   return (
     <div className={toggleClass}>
       All tags from all posts are:{" "}
