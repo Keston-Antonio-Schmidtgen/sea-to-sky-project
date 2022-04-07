@@ -33,7 +33,7 @@ export default function SideNavLeft({ setShowComponent }) {
     <>
       <MDBSideNav
         isOpen={groupOpen}
-        className="sticky-top"
+        className="me-3"
         getOpenState={(e) => setGroupOpen(e)}
       >
         <MDBSideNavMenu>

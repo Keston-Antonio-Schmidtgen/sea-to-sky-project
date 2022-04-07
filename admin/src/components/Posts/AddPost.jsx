@@ -1,10 +1,12 @@
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
-import { useRef, useState, useContext } from "react";
+import { useRef, useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { WordContext } from "../context";
+import parse from "html-react-parser";
+import SideNavRight from "../SideNav/SideNavRight";
 
-export default function AddPost({ toggleClass }) {
+export default function AddPost({ toggleClass, previewPost }) {
   // Context
   const { currentAdmin, setCurrentAdmin, post, setPost } =
     useContext(WordContext);
@@ -19,6 +21,11 @@ export default function AddPost({ toggleClass }) {
     published: false,
     tags: [],
   });
+
+  useEffect(() => {
+    setPost(data);
+    console.log("post is in useEffect", post);
+  }, [data]);
 
   const editorRef = useRef(null);
 
@@ -123,7 +130,8 @@ export default function AddPost({ toggleClass }) {
         <button onClick={handleSave}>Save</button>
       </div>
       <Link to="/admin">Back to Home</Link>
-      <button onClick={handleSave}>Save</button>
+
+      <SideNavRight title={data.title} body={data.body} />
     </div>
   );
 }

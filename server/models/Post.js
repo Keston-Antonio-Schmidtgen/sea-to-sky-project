@@ -34,6 +34,7 @@ const postSchema = new Schema({
     default: Date.now(),
   },
   tags: [],
+  image: { type: String, default: "" },
 });
 
 const Post = mongoose.model("Post", postSchema);

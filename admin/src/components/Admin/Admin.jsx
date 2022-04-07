@@ -21,6 +21,7 @@ export default function Admin() {
   const [showComponent, setShowComponent] = useState("home");
 
   /* ------------------------------------------------------------------------- */
+
   const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
   const history = useHistory();
   const handleLogout = () => {

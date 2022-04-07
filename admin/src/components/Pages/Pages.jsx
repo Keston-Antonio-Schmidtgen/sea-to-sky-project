@@ -34,7 +34,7 @@ export default function Pages({ toggleClass }) {
     owner: currentAdmin._id,
     body: "",
     title: "",
-    subtitle: "",
+    subTitle: "",
     published: true,
   });
 
