@@ -3,6 +3,7 @@ import axios from "axios";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 import { MDBDatatable } from "mdb-react-ui-kit";
+import "./tags.scss";
 
 export default function Tags({ toggleClass }) {
   const [posts, setPosts] = useState([]);
@@ -60,11 +61,11 @@ export default function Tags({ toggleClass }) {
   return (
     <div className={toggleClass}>
       All tags from all posts are:{" "}
-      <h1>
+      <div className="tagContainer">
         {tags?.map((item) => (
-          <div>{item}</div>
+          <div className="singleTag">{item}</div>
         ))}
-      </h1>{" "}
+      </div>{" "}
       <MDBDatatable
         multi
         selectable
