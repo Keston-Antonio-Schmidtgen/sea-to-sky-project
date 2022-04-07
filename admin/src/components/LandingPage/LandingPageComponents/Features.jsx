@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard,  MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBCard,  MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon, MDBContainer } from 'mdb-react-ui-kit';
 
 export default function Features() {
   return (
@@ -12,7 +12,8 @@ export default function Features() {
         
         </div>
         
-    <MDBRow className='row-cols-1 row-cols-md-4 g-5 my-2 ' style={{backgroundColor: "#FFBC97"}}>
+        <MDBContainer fluid>
+    <MDBRow className='row-cols-2 row-cols-md-4  g-5 my-2 ' style={{backgroundColor: "#FFBC97"}}>
       <MDBCol>
         <MDBCard>
           
@@ -53,7 +54,7 @@ export default function Features() {
         <MDBCard>
           
           <MDBCardBody>
-          <MDBIcon fas icon="server my-4" size='4x'/>
+          <MDBIcon fas icon="server my-1" size='4x'/>
             <MDBCardTitle>Restore Deleted Pages & Rollback Versioning</MDBCardTitle>
             <MDBCardText>
             You can easily restore deleted page content (before it is deleted permanently) and even roll back page text to previous versions using built-in version control features. Save pages so that only you can see what they look like or publish them live whenever you need.
@@ -62,6 +63,7 @@ export default function Features() {
         </MDBCard>
       </MDBCol>
     </MDBRow>
+  </MDBContainer>
     <hr class="my-5" />
     </div>
     </div>
