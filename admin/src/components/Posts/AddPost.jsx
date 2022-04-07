@@ -12,7 +12,7 @@ export default function AddPost({ toggleClass, previewPost }) {
     useContext(WordContext);
 
   const [tag, setTag] = useState("");
-
+  const [category, setCategory] = useState("");
   const [data, setData] = useState({
     owner: currentAdmin._id,
     body: "",
@@ -20,11 +20,11 @@ export default function AddPost({ toggleClass, previewPost }) {
     subtitle: "",
     published: false,
     tags: [],
+    categories: [],
   });
 
   useEffect(() => {
     setPost(data);
-    console.log("post is in useEffect", post);
   }, [data]);
 
   const editorRef = useRef(null);
@@ -49,7 +49,7 @@ export default function AddPost({ toggleClass, previewPost }) {
     console.log("post is", data);
   };
 
-  const handleTagSubmit = (e) => {
+  /*   const handleTagSubmit = (e) => {
     e.preventDefault();
 
     console.log("this is form submit");
@@ -62,7 +62,7 @@ export default function AddPost({ toggleClass, previewPost }) {
     data.tags.splice(idx, 1);
 
     setData({ ...oldData });
-  };
+  }; */
   return (
     <div className={`${toggleClass} container`}>
       <input
@@ -77,7 +77,7 @@ export default function AddPost({ toggleClass, previewPost }) {
       />
 
       <Editor
-      apiKey='gpmdvbp4187t8cmi6k5czc6i7imf86b5z81tv1p0ep40aav7'
+        apiKey="gpmdvbp4187t8cmi6k5czc6i7imf86b5z81tv1p0ep40aav7"
         onInit={(evt, editor) => (editorRef.current = editor)}
         initialValue=""
         init={{
@@ -98,33 +98,6 @@ export default function AddPost({ toggleClass, previewPost }) {
         }}
         onEditorChange={handleEditorChange}
       />
-      <div>
-        <form onSubmit={handleTagSubmit}>
-          <input
-            type="text"
-            value={tag}
-            onChange={(e) => setTag(e.target.value)}
-          />
-        </form>
-        <div style={{ display: "flex" }}>
-          {data?.tags?.length
-            ? data.tags.map((item, idx) => (
-                <div
-                  style={{ border: "1px solid", marginRight: "10px" }}
-                  key={idx}
-                >
-                  {item}{" "}
-                  <span
-                    onClick={(e) => handleDeleteTag(idx)}
-                    style={{ color: "red" }}
-                  >
-                    x
-                  </span>
-                </div>
-              ))
-            : "No tags added"}
-        </div>
-      </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <Link to="/home">Home</Link>
@@ -132,7 +105,17 @@ export default function AddPost({ toggleClass, previewPost }) {
       </div>
       <Link to="/admin">Back to Home</Link>
 
-      <SideNavRight title={data.title} body={data.body} />
+      <SideNavRight
+        title={data.title}
+        body={data.body}
+        subtitle={data.subtitle}
+        setTag={setTag}
+        tag={tag}
+        setData={setData}
+        data={data}
+        setCategory={setCategory}
+        category={category}
+      />
     </div>
   );
 }

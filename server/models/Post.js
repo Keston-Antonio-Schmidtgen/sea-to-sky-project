@@ -35,6 +35,7 @@ const postSchema = new Schema({
   },
   tags: [],
   image: { type: String, default: "" },
+  categories: [],
 });
 
 const Post = mongoose.model("Post", postSchema);
