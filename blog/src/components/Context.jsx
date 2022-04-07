@@ -16,6 +16,8 @@ export default function SeaContextProvider({ children }) {
   const [comment, setComment] = useState();
   const [allComments, setAllComments] = useState();
 
+  const [pageList, setPageList] = useState([]);
+
   return (
     <SeaContext.Provider
       value={{
@@ -35,6 +37,8 @@ export default function SeaContextProvider({ children }) {
         setComment,
         allComments,
         setAllComments,
+        pageList,
+        setPageList,
       }}
     >
       {children}

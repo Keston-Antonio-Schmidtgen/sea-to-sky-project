@@ -77,6 +77,7 @@ export default function AddPost({ toggleClass, previewPost }) {
       />
 
       <Editor
+      apiKey='gpmdvbp4187t8cmi6k5czc6i7imf86b5z81tv1p0ep40aav7'
         onInit={(evt, editor) => (editorRef.current = editor)}
         initialValue=""
         init={{
@@ -88,7 +89,7 @@ export default function AddPost({ toggleClass, previewPost }) {
             "insertdatetime media table paste code help wordcount",
           ],
           toolbar:
-            "undo | redo | formatselect | " +
+            "undo | redo | formatselect | image " +
             "bold italic backcolor | alignleft aligncenter " +
             "alignright alignjustify | bullist numlist outdent indent | " +
             "removeformat | help",

@@ -33,8 +33,8 @@ router.get("/list",  async (req, res) => {
       path: "owner",
       select: "username age address image",
     });
-    // console.log('posts list', posts)
-    res.send(pages);
+    console.log('posts list', pages)
+    res.send({success: true, pages});
   } catch (error) {
     console.log("Pages list ERROR", error.message);
     res.send(error.message);
