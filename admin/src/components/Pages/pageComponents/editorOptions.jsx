@@ -23,9 +23,11 @@ import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 const MenuBar = ({ editor }) => {
   const [isHover, setIsHover] = useState(false);
 
+
   if (!editor) {
     return null;
   }
+  
 
   return (
     <Box

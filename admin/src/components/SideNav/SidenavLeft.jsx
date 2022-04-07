@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   MDBSideNav,
   MDBSideNavMenu,
@@ -10,12 +10,19 @@ import {
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 
-export default function SideNavLeft({ setShowComponent }) {
+export default function SideNavLeft({ setShowComponent, refer }) {
   const [groupOpen, setGroupOpen] = useState(true);
   const [groupCollapseOpened1, setGroupCollapseOpened1] =
     useState("groupCollapse1");
   const [groupCollapseOpened2, setGroupCollapseOpened2] =
     useState("groupCollapse3");
+    const [container, setContainer] = useState();
+
+ 
+
+  useEffect(() => {
+    setContainer(refer?.current);
+  }, []);
 
   const toggleGroupCollapse1 = (value) => {
     value !== groupCollapseOpened1
@@ -33,16 +40,20 @@ export default function SideNavLeft({ setShowComponent }) {
     <>
       <MDBSideNav
         isOpen={groupOpen}
-        className="sticky-top"
+        className="bg-dark text-white "
+        mode="push"
+        contentRef={container}
         getOpenState={(e) => setGroupOpen(e)}
       >
-        <MDBSideNavMenu>
+        <MDBSideNavMenu className="navbar-expand-lg">
           <MDBSideNavItem>
             <MDBSideNavLink onClick={() => setShowComponent("home")}>
               <MDBIcon far icon="smile" className="fa-fw me-3" />
               Home
             </MDBSideNavLink>
           </MDBSideNavItem>
+
+          {/* Posts */}
           <MDBSideNavItem>
             <MDBSideNavLink
               icon="angle-down"
@@ -67,6 +78,9 @@ export default function SideNavLeft({ setShowComponent }) {
               </MDBSideNavLink>
             </MDBSideNavCollapse>
           </MDBSideNavItem>
+
+
+          {/* Pages */}
           <MDBSideNavItem>
             <MDBSideNavLink
               icon="angle-down"
@@ -94,6 +108,7 @@ export default function SideNavLeft({ setShowComponent }) {
               Comments
             </MDBSideNavLink>
           </MDBSideNavItem>
+          {/* users */}
           <MDBSideNavItem>
             <MDBSideNavLink
               icon="angle-down"
@@ -112,6 +127,9 @@ export default function SideNavLeft({ setShowComponent }) {
               </MDBSideNavLink>
             </MDBSideNavCollapse>
           </MDBSideNavItem>
+
+          
+          {/* Media */}
           <MDBSideNavItem>
             <MDBSideNavLink onClick={() => setShowComponent("media")}>
               <MDBIcon far icon="smile" className="fa-fw me-3" />
