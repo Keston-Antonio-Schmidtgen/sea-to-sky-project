@@ -48,7 +48,7 @@ export default function Navigation() {
         style={{
           backgroundImage:
             "url('https://mdbootstrap.com/img/Photos/new-templates/content-creator/img1.jpg')",
-          height: 900, }} >
+          height: 500, }} >
         <div className="mask" style={{ backgroundColor: "rgba(249, 195, 122, .2)" }}>
           <div className="d-flex justify-content-center align-items-center h-100"> 
           <div className="row w-100">
