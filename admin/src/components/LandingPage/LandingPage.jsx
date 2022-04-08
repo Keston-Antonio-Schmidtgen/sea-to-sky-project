@@ -9,12 +9,14 @@ import Pricing from "./LandingPageComponents/Pricing";
 import Pills from "./LandingPageComponents/Pills";
 import Testimonial from "./LandingPageComponents/Testimonial";
 import PillContent from "./LandingPageComponents/PillContent";
+import FetchPost from "../Posts/FetchPost";
 
 
 export default function LandingPage() {
   return (
     <div className="landingPageContainer">
       <Navigation />
+      <FetchPost />
       <Features />
       {<Pills />}
       <PillContent />
