@@ -1,21 +1,34 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import * as React from "react";
+import Box from "@mui/material/Box";
 
-export default function Users({toggleClass}) {
+import TextField from "@mui/material/TextField";
+
+// Icons
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import VpnKeyRoundedIcon from '@mui/icons-material/VpnKeyRounded';
+
+export default function Users({ toggleClass }) {
+
+  const iconSize = 'large'
+
   return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      className={toggleClass}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="standard-basic" label="Standard" variant="standard" />
+    <Box sx={{ "& > :not(style)": { m: 1 } }} className={toggleClass}>
+      <Box sx={{}}>
+        <Box sx={{ display: "flex", alignItems: "flex-end",  }}>
+          <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} fontSize={iconSize} />
+          <TextField id="input-with-sx" label="Username" variant="outlined" />
+          <TextField id="input-with-sx" label="Full name" variant="outlined"  className='mx-5'/>
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "flex-end", my: 5}}>
+          <EmailRoundedIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} fontSize={iconSize} />
+          <TextField id="input-with-sx" label="With sx" variant="outlined" />
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <VpnKeyRoundedIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} fontSize={iconSize} />
+          <TextField id="input-with-sx" label="Password" variant="outlined" />
+        </Box>
+      </Box>
     </Box>
   );
 }

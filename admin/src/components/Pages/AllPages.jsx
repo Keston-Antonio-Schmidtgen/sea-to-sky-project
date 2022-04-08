@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function AllPages() {
+export default function AllPages({toggleClass}) {
   return (
-    <div>AllPages</div>
+    <div className={toggleClass} >AllPages</div>
   )
 }
