@@ -40,6 +40,7 @@ export default function SideNavLeft({ setShowComponent, refer }) {
     <>
       <MDBSideNav
         isOpen={groupOpen}
+        absolute
         className="bg-dark text-white "
         mode="push"
         contentRef={container}
