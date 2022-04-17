@@ -34,7 +34,7 @@ export default function Pages({ toggleClass }) {
     owner: currentAdmin._id,
     body: "",
     title: "",
-    subtitle: "",
+    subTitle: "",
     published: true,
   });
 
@@ -55,7 +55,7 @@ export default function Pages({ toggleClass }) {
           if (node.type.name === "heading") {
             return "What`s the title?";
           }
-          console.log("NODE", node);
+          // console.log("NODE", node);
 
           return "Can you add some further context?";
         },
@@ -79,7 +79,6 @@ export default function Pages({ toggleClass }) {
   useEffect(() => {
     setData({ ...data, body: bodyData });
   }, [bodyData]);
-
   // NOTE Or if you want to restore the content later (e. g. after an API call has finished), you can do that too:
   // maybe with useEffect...
   // TODO this should be in the reader component.
@@ -109,7 +108,7 @@ export default function Pages({ toggleClass }) {
           label="Subject"
           id="form2"
           type="text"
-          onChange={(e) => setData({ ...data, subtitle: e.target.value })}
+          onChange={(e) => setData({ ...data, subTitle: e.target.value })}
         />
       </MDBContainer>
 

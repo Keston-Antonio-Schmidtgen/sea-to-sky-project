@@ -23,9 +23,11 @@ import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 const MenuBar = ({ editor }) => {
   const [isHover, setIsHover] = useState(false);
 
+
   if (!editor) {
     return null;
   }
+  
 
   return (
     <Box
@@ -39,9 +41,6 @@ const MenuBar = ({ editor }) => {
         borderRadius: 1,
         bgcolor: "background.paper",
         color: "text.secondary",
-        "& svg": {
-          m: 1.5,
-        },
         "& hr": {
           mx: 0.5,
           height: "initial",
@@ -50,8 +49,17 @@ const MenuBar = ({ editor }) => {
       }}
     >
       {/* Undo Redo */}
-      <Box className="d-flex align-items-center">
-        <Box className="menuButton">
+      <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: 'space-between',
+      }}>
+        <Box 
+        sx={{
+          width: 'fit-content'
+        }}
+        >
           <UndoRedoMenu editor={editor} fontSize="large" />
         </Box>
         <Divider orientation="vertical" variant="middle" flexItem />
