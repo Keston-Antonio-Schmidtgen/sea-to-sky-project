@@ -27,19 +27,38 @@ router.post("/add", auth, async (req, res) => {
   }
 });
 
-router.get("/list", auth, async (req, res) => {
+router.get("/list",  async (req, res) => {
   try {
     const pages = await Page.find().limit(10).populate({
       path: "owner",
       select: "username age address image",
     });
-    // console.log('posts list', posts)
-    res.send(pages);
+    console.log('posts list', pages)
+    res.send({success: true, pages});
   } catch (error) {
     console.log("Pages list ERROR", error.message);
     res.send(error.message);
   }
 });
+
+router.get('/single/:id', async (req, res) => {
+
+  try {
+      
+      const pages = await Page.findOne({_id: req.params.id}).populate({
+          path: 'owner',
+          select: 'username age address image'
+      })
+      // console.log('posts list', posts)
+      res.send({success: true, pages})
+  } catch (error) {
+      
+      console.log('Posts list ERROR', error. message)
+      res.send(error. message)
+  }
+})
+
+
 
 // router.put("/likeadd/:postid/:userid", auth, async (req, res) => {
 //   try {
