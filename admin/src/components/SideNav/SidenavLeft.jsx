@@ -16,9 +16,7 @@ export default function SideNavLeft({ setShowComponent, refer }) {
     useState("groupCollapse1");
   const [groupCollapseOpened2, setGroupCollapseOpened2] =
     useState("groupCollapse3");
-    const [container, setContainer] = useState();
-
- 
+  const [container, setContainer] = useState();
 
   useEffect(() => {
     setContainer(refer?.current);
@@ -39,6 +37,7 @@ export default function SideNavLeft({ setShowComponent, refer }) {
   return (
     <>
       <MDBSideNav
+        backdrop={false}
         isOpen={groupOpen}
         absolute
         className="bg-dark text-white "
@@ -79,7 +78,6 @@ export default function SideNavLeft({ setShowComponent, refer }) {
               </MDBSideNavLink>
             </MDBSideNavCollapse>
           </MDBSideNavItem>
-
 
           {/* Pages */}
           <MDBSideNavItem>
@@ -129,7 +127,6 @@ export default function SideNavLeft({ setShowComponent, refer }) {
             </MDBSideNavCollapse>
           </MDBSideNavItem>
 
-          
           {/* Media */}
           <MDBSideNavItem>
             <MDBSideNavLink onClick={() => setShowComponent("media")}>
