@@ -29,7 +29,7 @@ router.post("/add", auth, async (req, res) => {
 
 router.get("/list", auth, async (req, res) => {
   try {
-    const posts = await Post.find().limit(10).populate({
+    const posts = await Post.find().populate({
       path: "owner",
       select: "username age address image",
     });

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 export default function Home({ homeStyle, toggleClass }) {
   return (
@@ -12,6 +13,8 @@ export default function Home({ homeStyle, toggleClass }) {
       className={`${toggleClass}`}
     >
       Hello From home
+      <div className="boxes">
+      <Link to="/addPost">add Post</Link></div>
     </div>
   );
 }
