@@ -1,7 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import parse from "html-react-parser";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardImage,
+  MDBBtn,
+  MDBCardFooter,
+  MDBIcon,
+  MDBCol,
+  MDBRow,
+} from "mdb-react-ui-kit";
 
+import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
 export default function AllPosts({ toggleClass }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -21,19 +34,44 @@ export default function AllPosts({ toggleClass }) {
       style={{
         width: "150px",
         height: "150px",
-        backgroundColor: "blue",
       }}
       className={`${toggleClass}`}
     >
-      {posts?.map((item) => (
-        <div style={{ display: "flex", border: "1px solid black" }}>
-          <div>title:{item.title}</div>
-
-          <div>subtitle:{item.subtitle}</div>
-
-          <div>text:{parse(item.body)}</div>
-        </div>
-      ))}
+      <div className="d-flex flex-wrap">
+        {posts?.map((item) => (
+          <MDBCard
+            className="m-5"
+            style={{
+              maxWidth: "22rem",
+              maxHeight: "50rem",
+              overflow: "hidden",
+            }}
+          >
+            <MDBCardImage
+              style={{ objectFit: "cover", height: "50%" }}
+              src={item.image}
+              position="top"
+              alt="..."
+            />
+            <MDBCardBody style={{ overflow: "hidden" }}>
+              <MDBCardTitle>{item.title}</MDBCardTitle>
+              <MDBCardText>{parse(item.body)}</MDBCardText>
+            </MDBCardBody>
+            <MDBCardFooter className="text-muted" alignment="end">
+              <MDBBtn className="editIcon removeBorder">
+                <MDBIcon far icon="edit" />
+              </MDBBtn>
+              <MDBBtn className="trashIcon removeBorder">
+                <MDBIcon fas icon="trash" />
+              </MDBBtn>
+              <MDBBtn className="publishIcon mx-2  removeBorder">
+                {/* <MDBIcon fas icon="magic" /> */}
+                <IosShareRoundedIcon />
+              </MDBBtn>
+            </MDBCardFooter>
+          </MDBCard>
+        ))}
+      </div>
     </div>
   );
 }

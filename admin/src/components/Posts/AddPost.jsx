@@ -10,9 +10,10 @@ export default function AddPost({ toggleClass, previewPost }) {
   // Context
   const { currentAdmin, setCurrentAdmin, post, setPost } =
     useContext(WordContext);
-
+  const [empty, setEmpty] = useState(false);
   const [tag, setTag] = useState("");
   const [category, setCategory] = useState("");
+  const [image, setImage] = useState("");
   const [data, setData] = useState({
     owner: currentAdmin._id,
     body: "",
@@ -21,6 +22,7 @@ export default function AddPost({ toggleClass, previewPost }) {
     published: false,
     tags: [],
     categories: [],
+    image: "",
   });
 
   useEffect(() => {
@@ -30,6 +32,7 @@ export default function AddPost({ toggleClass, previewPost }) {
   const editorRef = useRef(null);
 
   const handleSave = async () => {
+    setEmpty(!empty);
     if (editorRef.current.getContent()) {
       console.log(
         "editorRef.current.getContent is:",
@@ -41,12 +44,46 @@ export default function AddPost({ toggleClass, previewPost }) {
       const response = await axios.post("/posts/add", data);
 
       console.log("response is from add post", response);
+      setData({
+        body: "",
+        title: "",
+        subtitle: "",
+        published: false,
+        tags: [],
+        categories: [],
+        image: "",
+      });
+    }
+  };
+
+  const handlePublish = async () => {
+    if (editorRef.current.getContent()) {
+      console.log(
+        "editorRef.current.getContent is:",
+        editorRef.current.getContent()
+      );
+
+      console.log("data is", data);
+
+      const response = await axios.post("/posts/add", data);
+
+      console.log("response is from add post", response);
+      setData({
+        ...data,
+        body: "",
+        title: "",
+        subtitle: "",
+        published: false,
+        tags: [],
+        categories: [],
+        image: "",
+      });
     }
   };
 
   const handleEditorChange = () => {
     setData({ ...data, body: editorRef.current.getContent() });
-    console.log("post is", data);
+    // console.log("post is", data);
   };
 
   /*   const handleTagSubmit = (e) => {
@@ -79,7 +116,7 @@ export default function AddPost({ toggleClass, previewPost }) {
       <Editor
         apiKey="gpmdvbp4187t8cmi6k5czc6i7imf86b5z81tv1p0ep40aav7"
         onInit={(evt, editor) => (editorRef.current = editor)}
-        initialValue=""
+        initialValue={empty ? "" : ""}
         init={{
           height: 500,
           menubar: false,
@@ -115,6 +152,9 @@ export default function AddPost({ toggleClass, previewPost }) {
         data={data}
         setCategory={setCategory}
         category={category}
+        setImage={setImage}
+        image={image}
+        handlePublish={handlePublish}
       />
     </div>
   );

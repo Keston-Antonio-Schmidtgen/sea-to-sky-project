@@ -3,6 +3,7 @@ import { WordContext } from "../context";
 import { useHistory, Link } from "react-router-dom";
 import { useContext, useState, useRef } from "react";
 import SideNavLeft from "../SideNav/SidenavLeft";
+import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import "./admin.scss";
 
 // import components
@@ -25,20 +26,14 @@ export default function Admin() {
 
   /* ------------------------------------------------------------------------- */
 
-  const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
-  const history = useHistory();
-  const handleLogout = () => {
-    setCurrentAdmin(null);
-
-    history.push("/login");
-  };
-  console.log("currentAdmin is from admin", currentAdmin);
-  console.log("show home is from admin", showComponent);
+  // console.log("currentAdmin is from admin", currentAdmin);
+  // console.log("show home is from admin", showComponent);
   return (
-    <div className="adminContainer">
-      <button onClick={handleLogout}>LogOut</button>
+    <div className="adminContainer position-relative">
       <div>
         <SideNavLeft
+          // groupOpen={groupOpen}
+          // setGroupOpen={setGroupOpen}
           setShowComponent={setShowComponent}
           refer={sidenavContent}
         />
@@ -61,8 +56,9 @@ export default function Admin() {
             toggleClass={showComponent === "categories" ? "show" : "hidden"}
           />
           <Users toggleClass={showComponent === "users" ? "show" : "hidden"} />
-          <AddUser toggleClass={showComponent === "addUser" ? "show" : "hidden"} />
-          
+          <AddUser
+            toggleClass={showComponent === "addUser" ? "show" : "hidden"}
+          />
           <Tags toggleClass={showComponent === "tags" ? "show" : "hidden"} />
           <Comments
             toggleClass={showComponent === "comments" ? "show" : "hidden"}
