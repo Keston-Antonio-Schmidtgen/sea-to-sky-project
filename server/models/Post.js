@@ -34,7 +34,7 @@ const postSchema = new Schema({
     default: Date.now(),
   },
   tags: [],
-  image: { type: String, default: "" },
+  image: [],
   categories: [],
 });
 

@@ -25,6 +25,9 @@ export default function SideNavRight({
   setData,
   category,
   setCategory,
+  setImage,
+  image,
+  handlePublish,
 }) {
   const [showImage, setShowImage] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
@@ -66,6 +69,20 @@ export default function SideNavRight({
     setData({ ...oldData });
   };
   /* ------------------------------------ */
+  /* --------------------Image handling -----------------*/
+  const handleImageSubmit = (e) => {
+    e.preventDefault();
+
+    setData({ ...data, image: [...data.image, image] });
+    setImage("");
+  };
+  const handleDeleteImage = (idx) => {
+    const oldData = { ...data };
+    data.image.splice(idx, 1);
+
+    setData({ ...oldData });
+  };
+  /* ------------------------------------ */
   return (
     <div className="sideNavRightContainer">
       {" "}
@@ -73,13 +90,14 @@ export default function SideNavRight({
       <MDBBtn rounded onClick={toggleShowModal}>
         Preview Post
       </MDBBtn>
-      <MDBBtn rounded>Publish</MDBBtn>
+      <MDBBtn onClick={handlePublish} rounded>
+        Publish
+      </MDBBtn>
       <MDBBtn rounded onClick={toggleShowTags}>
         Add Tags
       </MDBBtn>
       <MDBCollapse show={showTags}>
         <form action="" onSubmit={handleTagSubmit}>
-          {" "}
           <MDBInput
             label="Enter tag"
             id="form1"
@@ -144,9 +162,34 @@ export default function SideNavRight({
         Add Image
       </MDBBtn>
       <MDBCollapse show={showImage}>
-        <MDBBtn floating tag="a">
-          <MDBIcon fas icon="download" />
-        </MDBBtn>
+        <form action="" onSubmit={handleImageSubmit}>
+          {" "}
+          <MDBInput
+            label="Enter image link"
+            id="form1"
+            type="text"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </form>
+        <div style={{ display: "flex", height: "50px" }}>
+          {data?.image?.length
+            ? data.image.map((item, idx) => (
+                <div
+                  style={{ border: "1px solid", marginRight: "10px" }}
+                  key={idx}
+                >
+                  {item}{" "}
+                  <span
+                    onClick={(e) => handleDeleteImage(idx)}
+                    style={{ color: "red" }}
+                  >
+                    x
+                  </span>
+                </div>
+              ))
+            : "No image link added"}
+        </div>
       </MDBCollapse>
       <div>
         <MDBModal tabIndex="-1" show={centredModal} setShow={setCentredModal}>
