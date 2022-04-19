@@ -38,11 +38,13 @@ export default function Login() {
     }
   };
   return (
-    <div className="text-center bg-images">
+    <div className="text-center">
       <div className="register">
         <div className="container">
           <div className="row align-items-center my-5">
-            <div className="col-lg-7"></div>
+          <div class="col-lg-7">
+          {/* <img src={require('/image-1.png')} class="img-fluid" alt="..." /> */}
+          </div>
             <div className="col-lg-5">
               <h2 className="font-weight-light">Login</h2>
 <form>
