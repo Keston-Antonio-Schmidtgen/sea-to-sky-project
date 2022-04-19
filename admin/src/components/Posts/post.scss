@@ -1,21 +1,21 @@
-$iconColor: #7E574E;
+$iconColor: #7e574e;
 $iconColorDark: #222527;
-$trashIConColor: #C45C2F;
+$trashIConColor: #c45c2f;
+
 .trashIcon {
-    background-color: $trashIConColor !important;
-    float: right;
-  }
-  
-  .trashIcon:hover {
-    background-color: #f37676 !important;
-  }
-  
-  .editIcon,
-  .publishIcon {
-    background: $iconColor !important;
-  }
-  .editIcon:hover,
-  .publishIcon:hover {
-    background: #626567 !important;
-  }
-  
+  background-color: $trashIConColor !important;
+  float: right;
+}
+
+.trashIcon:hover {
+  background-color: #f37676 !important;
+}
+
+.editIcon,
+.publishIcon {
+  background: $iconColor !important;
+}
+.editIcon:hover,
+.publishIcon:hover {
+  background: #626567 !important;
+}
