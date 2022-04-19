@@ -1,9 +1,14 @@
+$colorDark: #222527;
+$hoverColorDark: #414547;
+$secondaryColor: #c45c2f;
+$secondaryColorDark: #7e574e;
+
 .sideNavRightContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  width: 200px;
+  width: 400px;
   height: 100%;
   background-color: #f5f5f5;
   border-left: 1px solid #e5e5e5;
@@ -65,3 +70,48 @@
   background-color: #cd9e6e73 !important;
 }
 
+.addContainer {
+  width: 300px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  * {
+    margin: 6px 3px;
+  }
+}
+.previewContainer {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fafafa;
+  box-shadow: rgba(105, 95, 95, 0.198) 0px 4px 12px;
+
+  // border: 8px solid rgba(205, 158, 110, 0.451);
+  /* background-color: #cd9e6e42;*/
+  border-radius: 20px;
+}
+.add {
+  border: 3px solid rgba(205, 158, 110, 0.451);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  margin-top: 10px;
+  //max-width: 100px;
+}
+.add * {
+  margin: 0 15px;
+}
+.buttonBg {
+  background-color: $colorDark !important;
+}
+
+.buttonBg:hover {
+  background-color: $hoverColorDark !important;
+}

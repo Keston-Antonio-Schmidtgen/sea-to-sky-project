@@ -1,0 +1,27 @@
+.pageContainer {
+  /*   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column; */
+  margin: 0 auto;
+  width: 50%;
+  & > .pageContent > img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+  }
+  & > .pageContent h4 {
+    font-size: 4rem;
+  }
+}
+
+.backTohomeLink {
+  color: #fff;
+  padding: 10px;
+  background: #222527;
+}
+
+.backTohomeLink:hover {
+  background: #414547;
+  color: white;
+}
