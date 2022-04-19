@@ -153,7 +153,7 @@ export default function AddPost({ toggleClass, previewPost }) {
         setCategory={setCategory}
         category={category}
         setImage={setImage}
-        image={image}
+        image={image} 
         handlePublish={handlePublish}
       />
     </div>
