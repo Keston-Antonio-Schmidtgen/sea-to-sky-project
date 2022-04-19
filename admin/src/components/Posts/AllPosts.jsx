@@ -14,7 +14,8 @@ import {
   MDBRow,
 } from "mdb-react-ui-kit";
 
-import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
+import './post.scss'
+
 export default function AllPosts({ toggleClass }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -66,7 +67,7 @@ export default function AllPosts({ toggleClass }) {
               </MDBBtn>
               <MDBBtn className="publishIcon mx-2  removeBorder">
                 {/* <MDBIcon fas icon="magic" /> */}
-                <IosShareRoundedIcon />
+                <MDBIcon fas icon="cloud-upload-alt" />
               </MDBBtn>
             </MDBCardFooter>
           </MDBCard>
