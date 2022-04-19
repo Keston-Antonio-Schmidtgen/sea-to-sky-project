@@ -19,6 +19,7 @@ const pageSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  image: [],
 });
 
 const Page = mongoose.model("page", pageSchema);
