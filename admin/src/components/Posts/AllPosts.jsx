@@ -32,10 +32,7 @@ export default function AllPosts({ toggleClass }) {
 
   return (
     <div
-      style={{
-        width: "150px",
-        height: "150px",
-      }}
+      
       className={`${toggleClass}`}
     >
       <div className="d-flex flex-wrap">

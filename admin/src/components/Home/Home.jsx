@@ -7,17 +7,21 @@ export default function Home({ homeStyle, toggleClass }) {
     <div
       style={{
         display: homeStyle,
-        width: "150px",
-        height: "150px",
-        backgroundColor: "red",
+        
+        fontSize: "20px",
       }}
       className={`${toggleClass}`}
     >
-      Hello From home
+     <div style={{fontSize: "30px", marginBottom: "5px"
+}}>My Home </div>
+      <div style={{ marginBottom: "30px"
+}}>Your hub for showing, posting, and growing your site.
+
+</div>
       <div className="boxes">
-      <div><Link to="/allposts">All Posts</Link></div>
-      <div><Link to="/allpages">All Posts</Link></div>
-      <div><Link to="/media">All Posts</Link></div>
+      <Link to="/allposts"> <div>All Posts</div></Link>
+      <Link to="/allpages"><div>All Pages</div></Link>
+      <Link to="/media"><div>All Media</div></Link>
       </div>
     </div>
   );

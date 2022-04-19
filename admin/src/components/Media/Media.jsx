@@ -22,7 +22,7 @@ export default function Media({ toggleClass }) {
     Object.entries(data).forEach((item) => formdata.set(item[0], item[1]));
 
     try {
-      if (newImage) formdata.set("image", newImage, "image");
+      if (newImage !== "") formdata.set("image", newImage, "image");
 
       const response = await axios.post("/media/add", formdata);
       console.log("save post: response is", response);
@@ -48,7 +48,6 @@ export default function Media({ toggleClass }) {
       setImages([...response.data]);
     };
     getData();
-    console.log("images", images);
   }, [newImage]);
 
   return (
