@@ -11,6 +11,8 @@ import EmailConfirm from "./components/Email/Email";
 import ForgotPass from "./components/Password/ForgotPass";
 import ChangePass from "./components/Password/ChangePass";
 import Home from "./components/Home/Home";
+import AllPages from "./components/Pages/AllPages";
+import Media from "./components/Media/Media";
 
 export default function routes() {
   return (
@@ -21,6 +23,8 @@ export default function routes() {
       <Route path="/register" component={Register} />
       <Route path="/allposts" component={AllPosts} />
       <Route path="/home" component={Home} />
+      <Route path="/allpages" component={AllPages} />
+      <Route path="/media" component={Media} />
 
       {/* This routes shouldn't be here!
       Please consider removing 'em and only render these components direct inside the admin page
@@ -30,7 +34,8 @@ export default function routes() {
       <Route path="/emailconfirm/:token" exact component={EmailConfirm} />
       <Route path="/forgotpass" exact component={ForgotPass} />
       <Route path="/changepassword/:token" exact component={ChangePass} />
-      <Route path="/addpost" component={AddPost} />
+      <Route path="/addPost" component={AddPost} />
+
 
       {/* /* -------------------------------------------------------------------------- 
       /*                   End of routes that need to be removeed                   

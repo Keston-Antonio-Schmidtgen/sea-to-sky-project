@@ -33,12 +33,14 @@ export default function AllPosts({ toggleClass }) {
   }, [toggleClass]);
 
   return (
+
     <div className={`${toggleClass}`}>
       <div
         className="d-flex flex-wrap "
         style={{ marginLeft: "10em", width: "80%" }}
       >
         {posts?.map((item, idx) => (
+
           <MDBCard
             className="m-5"
             style={{
