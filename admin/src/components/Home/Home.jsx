@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import "./Home.scss"
 
 export default function Home({ homeStyle, toggleClass }) {
   return (
@@ -14,7 +15,10 @@ export default function Home({ homeStyle, toggleClass }) {
     >
       Hello From home
       <div className="boxes">
-      <Link to="/addPost">add Post</Link></div>
+      <div><Link to="/allposts">All Posts</Link></div>
+      <div><Link to="/allpages">All Posts</Link></div>
+      <div><Link to="/media">All Posts</Link></div>
+      </div>
     </div>
   );
 }
