@@ -25,18 +25,28 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 // import mbd components
-import { MDBInput, MDBContainer } from "mdb-react-ui-kit";
+import { MDBInput, MDBContainer, MDBBtn } from "mdb-react-ui-kit";
 
 export default function Pages({ toggleClass }) {
+  /* --------------------Image handling -----------------*/
+  const handleImageSubmit = (e) => {
+    e.preventDefault();
+
+    setData({ ...data, image: [...data.image, image] });
+    setImage("");
+  };
+
   // bringing stuff from AddPost.jsx
   const { currentAdmin } = useContext(WordContext);
   const [bodyData, setBodyData] = useState("");
+  const [image, setImage] = useState("");
   const [data, setData] = useState({
     owner: currentAdmin._id,
     body: "",
     title: "",
     subTitle: "",
     published: true,
+    image: "",
   });
 
   const editor = useEditor({
@@ -111,13 +121,24 @@ export default function Pages({ toggleClass }) {
           type="text"
           onChange={(e) => setData({ ...data, subTitle: e.target.value })}
         />
+        {/* <form action="" onSubmit={handleImageSubmit}> */}
+        <MDBInput
+          label="Enter image link"
+          id="form1"
+          type="text"
+          // value={image}
+          onChange={(e) => setData({ ...data, image: e.target.value })}
+        />
+        {/* </form> */}
       </MDBContainer>
 
       <div className="pageComponents">
         <MenuBar editor={editor} />
         <EditorContent editor={editor} className="textEditorBox" />
         <div className="text-end">
-          <button onClick={handleSave}>Publish</button>
+          <MDBBtn onClick={handleSave} className="buttonBg removeBorder">
+            Publish
+          </MDBBtn>
         </div>
       </div>
     </Box>
