@@ -14,7 +14,9 @@ import {
   MDBRow,
 } from "mdb-react-ui-kit";
 
-import './post.scss'
+import { Link } from "react-router-dom";
+
+import "./post.scss";
 
 export default function AllPosts({ toggleClass }) {
   const [posts, setPosts] = useState([]);
@@ -31,12 +33,11 @@ export default function AllPosts({ toggleClass }) {
   }, [toggleClass]);
 
   return (
-    <div
-      
-      className={`${toggleClass}`}
-    >
-      <div className="d-flex flex-wrap">
-        {posts?.map((item) => (
+
+    <div className={`${toggleClass}`}>
+      <div className="d-flex flex-wrap " style={{ marginLeft: "10em" }}>
+        {posts?.map((item, idx) => (
+
           <MDBCard
             className="m-5"
             style={{
@@ -44,6 +45,7 @@ export default function AllPosts({ toggleClass }) {
               maxHeight: "50rem",
               overflow: "hidden",
             }}
+            key={idx}
           >
             <MDBCardImage
               style={{ objectFit: "cover", height: "50%" }}

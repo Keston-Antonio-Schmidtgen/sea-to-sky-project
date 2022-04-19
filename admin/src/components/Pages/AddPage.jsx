@@ -3,6 +3,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 
 import StarterKit from "@tiptap/starter-kit";
 import MenuBar from "./pageComponents/editorOptions";
+import SideNavRight from "../SideNav/SideNavRight";
 
 //-------------------------------------------
 import TextStyle from "@tiptap/extension-text-style";
@@ -12,13 +13,13 @@ import { Color } from "@tiptap/extension-color";
 import Focus from "@tiptap/extension-focus";
 import Placeholder from "@tiptap/extension-placeholder";
 import TextAlign from "@tiptap/extension-text-align";
+import Box from "@mui/material/Box";
 
 // import styling
 import "./pages.scss";
 
 // import context
 import { WordContext } from "../context";
-
 // import axios
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -96,7 +97,7 @@ export default function Pages({ toggleClass }) {
   // console.log("Data BEFore Submit", data);
 
   return (
-    <div className={`${toggleClass} mt-5 mx-auto w-75`}>
+    <Box className={`${toggleClass} mt-5 mx-auto w-75`} sx={{ mt: 5 }}>
       <MDBContainer fluid>
         <MDBInput
           label="Title"
@@ -119,6 +120,6 @@ export default function Pages({ toggleClass }) {
           <button onClick={handleSave}>Publish</button>
         </div>
       </div>
-    </div>
+    </Box>
   );
 }

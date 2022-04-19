@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import { WordContext } from "../context";
 import parse from "html-react-parser";
 import SideNavRight from "../SideNav/SideNavRight";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 
 export default function AddPost({ toggleClass, previewPost }) {
   // Context
@@ -30,8 +34,7 @@ export default function AddPost({ toggleClass, previewPost }) {
   }, [data]);
 
   const editorRef = useRef(null);
-
-  const handleSave = async () => {
+  const handlePublish = async () => {
     setEmpty(!empty);
     if (editorRef.current.getContent()) {
       console.log(
@@ -44,32 +47,8 @@ export default function AddPost({ toggleClass, previewPost }) {
       const response = await axios.post("/posts/add", data);
 
       console.log("response is from add post", response);
+
       setData({
-        body: "",
-        title: "",
-        subtitle: "",
-        published: false,
-        tags: [],
-        categories: [],
-        image: "",
-      });
-    }
-  };
-
-  const handlePublish = async () => {
-    if (editorRef.current.getContent()) {
-      console.log(
-        "editorRef.current.getContent is:",
-        editorRef.current.getContent()
-      );
-
-      console.log("data is", data);
-
-      const response = await axios.post("/posts/add", data);
-
-      console.log("response is from add post", response);
-      setData({
-        ...data,
         body: "",
         title: "",
         subtitle: "",
@@ -83,40 +62,34 @@ export default function AddPost({ toggleClass, previewPost }) {
 
   const handleEditorChange = () => {
     setData({ ...data, body: editorRef.current.getContent() });
-    // console.log("post is", data);
   };
 
-  /*   const handleTagSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("this is form submit");
-    // add Tag to the data object at property tags.
-    setData({ ...data, tags: [...data.tags, tag] });
-    setTag("");
-  };
-  const handleDeleteTag = (idx) => {
-    const oldData = { ...data };
-    data.tags.splice(idx, 1);
-
-    setData({ ...oldData });
-  }; */
   return (
     <div className={`${toggleClass} container`}>
-      <input
-        placeholder="Type the title"
-        value={data.title}
-        onChange={(e) => setData({ ...data, title: e.target.value })}
-      />
-      <input
-        placeholder="Type the subtitle"
-        value={data.subtitle}
-        onChange={(e) => setData({ ...data, subtitle: e.target.value })}
-      />
+      <Box sx={{ "& > :not(style)": { m: 1 } }} className={toggleClass}>
+        <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <TextField
+            value={data.title}
+            id="input-with-sx"
+            label="Type the title"
+            variant="outlined"
+            onChange={(e) => setData({ ...data, title: e.target.value })}
+          />
+          <TextField
+            value={data.subtitle}
+            id="input-with-sx"
+            label="Subtitle"
+            variant="outlined"
+            className="mx-5"
+            onChange={(e) => setData({ ...data, subtitle: e.target.value })}
+          />
+        </Box>
+      </Box>
 
       <Editor
         apiKey="gpmdvbp4187t8cmi6k5czc6i7imf86b5z81tv1p0ep40aav7"
         onInit={(evt, editor) => (editorRef.current = editor)}
-        initialValue={empty ? "" : ""}
+        initialValue={data.body == "" ? "" : ""}
         init={{
           height: 500,
           menubar: false,
@@ -135,13 +108,6 @@ export default function AddPost({ toggleClass, previewPost }) {
         }}
         onEditorChange={handleEditorChange}
       />
-
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Link to="/home">Home</Link>
-        <button onClick={handleSave}>Save</button>
-      </div>
-      <Link to="/admin">Back to Home</Link>
-
       <SideNavRight
         title={data.title}
         body={data.body}
