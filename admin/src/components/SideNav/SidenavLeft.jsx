@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { WordContext } from "../context";
 import {
   MDBSideNav,
   MDBSideNavMenu,
@@ -8,17 +9,22 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
+
+import Tooltip from "@mui/material/Tooltip";
+
+import { Link, useHistory } from "react-router-dom";
 
 export default function SideNavLeft({ setShowComponent, refer }) {
+  /* button expand-------------- */
   const [groupOpen, setGroupOpen] = useState(true);
+  // admin context
+  const { currentAdmin, setCurrentAdmin } = useContext(WordContext);
+  /* ------------------------ */
   const [groupCollapseOpened1, setGroupCollapseOpened1] =
     useState("groupCollapse1");
   const [groupCollapseOpened2, setGroupCollapseOpened2] =
     useState("groupCollapse3");
-    const [container, setContainer] = useState();
-
- 
+  const [container, setContainer] = useState();
 
   useEffect(() => {
     setContainer(refer?.current);
@@ -36,20 +42,28 @@ export default function SideNavLeft({ setShowComponent, refer }) {
       : setGroupCollapseOpened2("");
   };
 
+  const history = useHistory();
+  const handleLogout = () => {
+    setCurrentAdmin(null);
+
+    history.push("/login");
+  };
+
   return (
-    <>
+    <div>
       <MDBSideNav
+        backdrop={false}
         isOpen={groupOpen}
-        absolute
-        className="bg-dark text-white "
+        className="text-white"
         mode="push"
         contentRef={container}
         getOpenState={(e) => setGroupOpen(e)}
+        style={{ background: "#222527" }}
       >
         <MDBSideNavMenu className="navbar-expand-lg">
           <MDBSideNavItem>
             <MDBSideNavLink onClick={() => setShowComponent("home")}>
-              <MDBIcon far icon="smile" className="fa-fw me-3" />
+              <MDBIcon fas icon="home" className="fa-fw me-3" />
               Home
             </MDBSideNavLink>
           </MDBSideNavItem>
@@ -61,7 +75,7 @@ export default function SideNavLeft({ setShowComponent, refer }) {
               shouldBeExpanded={groupCollapseOpened1 === "groupCollapse1"}
               onClick={() => toggleGroupCollapse1("groupCollapse1")}
             >
-              <MDBIcon fas icon="grin" className="fa-fw me-3" />
+              <MDBIcon fas icon="pencil-alt" className="fa-fw me-3" />
               Posts
             </MDBSideNavLink>
             <MDBSideNavCollapse id="groupCollapse1" show={groupCollapseOpened1}>
@@ -80,7 +94,6 @@ export default function SideNavLeft({ setShowComponent, refer }) {
             </MDBSideNavCollapse>
           </MDBSideNavItem>
 
-
           {/* Pages */}
           <MDBSideNavItem>
             <MDBSideNavLink
@@ -88,7 +101,7 @@ export default function SideNavLeft({ setShowComponent, refer }) {
               shouldBeExpanded={groupCollapseOpened1 === "groupCollapse2"}
               onClick={() => toggleGroupCollapse1("groupCollapse2")}
             >
-              <MDBIcon fas icon="grin" className="fa-fw me-3" />
+              <MDBIcon fas icon="leaf" className="fa-fw me-3" />
               Pages
             </MDBSideNavLink>
             <MDBSideNavCollapse id="groupCollapse2" show={groupCollapseOpened1}>
@@ -101,50 +114,82 @@ export default function SideNavLeft({ setShowComponent, refer }) {
             </MDBSideNavCollapse>
           </MDBSideNavItem>
         </MDBSideNavMenu>
-
         <MDBSideNavMenu>
           <MDBSideNavItem>
             <MDBSideNavLink onClick={() => setShowComponent("comments")}>
-              <MDBIcon far icon="smile" className="fa-fw me-3" />
+              <MDBIcon far icon="comment" className="fa-fw me-3" />
               Comments
             </MDBSideNavLink>
           </MDBSideNavItem>
           {/* users */}
-          <MDBSideNavItem>
-            <MDBSideNavLink
-              icon="angle-down"
-              shouldBeExpanded={groupCollapseOpened2 === "groupCollapse3"}
-              onClick={() => toggleGroupCollapse2("groupCollapse3")}
-            >
-              <MDBIcon fas icon="grin" className="fa-fw me-3" />
-              Users
-            </MDBSideNavLink>
-            <MDBSideNavCollapse id="groupCollapse3" show={groupCollapseOpened2}>
-              <MDBSideNavLink onClick={() => setShowComponent("users")}>
-                All Users
+          <Tooltip title="Upcoming Feature" placement="right">
+            <MDBSideNavItem>
+              <MDBSideNavLink
+                icon="angle-right"
+                // shouldBeExpanded={groupCollapseOpened2 === "groupCollapse3"}
+                // onClick={() => toggleGroupCollapse2("groupCollapse3")}
+                className="disabledLink"
+              >
+                <MDBIcon fas icon="user-alt" className="fa-fw me-3" />
+                Users
               </MDBSideNavLink>
-              <MDBSideNavLink onClick={() => setShowComponent("addUser")}>
-                Add New
-              </MDBSideNavLink>
-            </MDBSideNavCollapse>
-          </MDBSideNavItem>
+              <MDBSideNavCollapse
+                // id="groupCollapse3"
+                show={groupCollapseOpened2}
+              >
+                <MDBSideNavLink
+                // onClick={() => setShowComponent("users")}
+                >
+                  All Users
+                </MDBSideNavLink>
+                <MDBSideNavLink
+                // onClick={() => setShowComponent("addUser")}
+                >
+                  Add New
+                </MDBSideNavLink>
+              </MDBSideNavCollapse>
+            </MDBSideNavItem>
+          </Tooltip>
 
-          
           {/* Media */}
           <MDBSideNavItem>
             <MDBSideNavLink onClick={() => setShowComponent("media")}>
-              <MDBIcon far icon="smile" className="fa-fw me-3" />
+              <MDBIcon fas icon="image" className="fa-fw me-3" />
               Media
             </MDBSideNavLink>
           </MDBSideNavItem>
         </MDBSideNavMenu>
-      </MDBSideNav>
-
-      <div style={{ padding: "20px" }} className="text-center">
-        <MDBBtn onClick={() => setGroupOpen(!groupOpen)}>
-          <MDBIcon fas icon="bars" />
+        <div
+          style={{ padding: "20px" }}
+          className="navExpandButton "
+          ref={refer}
+        >
+          <MDBBtn
+            className="text-white bg-dark removeBorder"
+            onClick={() => setGroupOpen(!groupOpen)}
+          >
+            {!groupOpen ? (
+              <MDBIcon
+                fas
+                icon="angle-double-right"
+                className="bg-dark text-white "
+              />
+            ) : (
+              <MDBIcon
+                fas
+                icon="angle-double-left"
+                className="bg-dark text-white "
+              />
+            )}
+          </MDBBtn>
+        </div>
+        <MDBBtn
+          className="rounded-0 mx-auto d-block bottom-0 position-absolute start-0 end-0 logoutButton removeBorder"
+          onClick={handleLogout}
+        >
+          LogOut
         </MDBBtn>
-      </div>
-    </>
+      </MDBSideNav>
+    </div>
   );
 }

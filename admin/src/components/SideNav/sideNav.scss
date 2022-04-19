@@ -11,3 +11,57 @@
   top: 0;
   right: 0;
 }
+
+.sidenav-primary a,
+.sidenav-primary a:hover {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.sidenav-primary .sidenav-item .sidenav-link:hover,
+.sidenav-primary .sidenav-link:active,
+.sidenav-primary .sidenav-link:focus {
+  background-color: #cd9e6e;
+}
+.navExpandButton {
+  z-index: -1 !important;
+  position: absolute;
+  top: -1% !important;
+  right: -21%;
+}
+
+.navExpandButton:first-child {
+  background-color: #222527 !important;
+}
+
+.sidenav {
+  z-index: 1 !important;
+  overflow: visible !important;
+}
+
+.ps {
+  overflow: visible !important;
+  // overflow-anchor: none;
+}
+
+.removeBorder,
+.removeBorder:active,
+.removeBorder:hover,
+.removeBorder:focus,
+.removeBorder:focus-visible {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.logoutButton {
+  background-color: #cd9e6e !important;
+}
+.logoutButton:hover {
+  background-color: #c45c2f !important;
+  font-weight: 700;
+}
+
+.disabledLink:hover {
+  background-color: #cd9e6e73 !important;
+}
+
